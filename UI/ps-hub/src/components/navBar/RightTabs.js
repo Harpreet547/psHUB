@@ -11,7 +11,7 @@ class RightTabs extends Component {
     constructor(props) {
         super(props);
 
-        console.log('RightTabs Props: ' + JSON.stringify(this.props));
+        //console.log('RightTabs Props: ' + JSON.stringify(this.props));
         this.redirectTo = this.redirectTo.bind(this);
         this.redirectTo('/login', this.props);
     }

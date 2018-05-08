@@ -4,7 +4,12 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-ReactDOM.render(<BrowserRouter>
-        <Route path='/' component={ App }/>
-    </BrowserRouter>, document.getElementById('root'));
+import { Provider } from 'react-redux';
+import store from './redux/Store';
+
+ReactDOM.render(<Provider store={ store }>
+                    <BrowserRouter>
+                        <Route path='/' component={ App }/>
+                    </BrowserRouter>
+                </Provider>, document.getElementById('root'));
 registerServiceWorker();
