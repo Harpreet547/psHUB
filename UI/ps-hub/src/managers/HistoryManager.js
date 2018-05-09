@@ -1,6 +1,7 @@
 import { createBrowserHistory as createHistory } from "history";
 
 class HistoryManager {
+    // eslint-disable-next-line
     constructor() {
         this.history = createHistory();
     }

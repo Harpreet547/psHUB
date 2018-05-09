@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
-import AppBar from 'material-ui/AppBar';
-
-import RightTabs from './RightTabs';
+import NavBarStyle from './NavBarStyle';
 import NavBarElementConstants from '../../redux/reduxConstants/NavBarElementConstants';
+import { Navbar } from 'react-bootstrap';
 
 class NavBar extends Component {
 
@@ -15,7 +14,7 @@ class NavBar extends Component {
     getNavBarRightElement() {
         switch(this.props.rightElement) {
             case NavBarElementConstants.rightElements.RightTabs:
-                return <RightTabs {...this.props}/>;
+                return null;
             default:
                 return null;
         }
@@ -30,12 +29,14 @@ class NavBar extends Component {
 
     render() {
         return (
-            <AppBar
-                title = { this.props.barTitle }
-                showMenuIconButton = { false }
-                iconElementLeft = { this.getNavBarLeftElement() }
-                iconElementRight = { this.getNavBarRightElement() }/>
-                
+            <Navbar style = { NavBarStyle.NavBar }>
+                <Navbar.Header>
+                    <img className = 'navbar-left' style = { NavBarStyle.BrandImage }/>
+                    <Navbar.Brand>
+                        <p style = { NavBarStyle.BrandTitle }>{ this.props.barTitle }</p>
+                    </Navbar.Brand>
+                </Navbar.Header>
+            </Navbar>
         );
     }
 }

@@ -1,26 +1,24 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
 
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
 import Login from './components/login/Login';
 import SignUp from './components/signUp/SignUp';
 import NavBarContainer from './redux/containers/NavBarContainer';
+import AppStyle from './AppStyle';
 
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider muiTheme={ getMuiTheme(lightBaseTheme) }>
-        <div className="App">
-          <NavBarContainer {...this.props}/>
-          <div className='main'>
-            <Route path='/login' component={ Login }/>
-            <Route path='/signUp' component={ SignUp }/>
-          </div>
+      <div className="App" style = { AppStyle.App }>
+        {
+          this.props.navBarVisible ? <NavBarContainer {...this.props}/> : null
+        }
+        
+        <div className='main' style = { AppStyle.main }>
+          <Route path='/login' component={ Login }/>
+          <Route path='/signUp' component={ SignUp }/>
         </div>
-      </MuiThemeProvider>
+      </div>
     );
   }
 }
