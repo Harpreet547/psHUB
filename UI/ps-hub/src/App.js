@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
 
-import Login from './components/login/Login';
-import SignUp from './components/signUp/SignUp';
+import Auth from './components/auth/Auth';
 import NavBarContainer from './redux/containers/NavBarContainer';
 import AppStyle from './AppStyle';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log('APP PROPS: ' + JSON.stringify(this.props));
+  }
   render() {
     return (
       <div className="App" style = { AppStyle.App }>
@@ -15,8 +18,7 @@ class App extends Component {
         }
         
         <div className='main' style = { AppStyle.main }>
-          <Route path='/login' component={ Login }/>
-          <Route path='/signUp' component={ SignUp }/>
+          <Route path='/auth' component={ Auth }/>
         </div>
       </div>
     );

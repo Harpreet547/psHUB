@@ -11,6 +11,13 @@ const AppConstants = {
         fifthColor: '#CAFAFE',
         primaryTextColor: 'black',
         secondaryTextColor: 'white'
+    },
+    formConstants: {
+        validationStates: {
+            error: 'error',
+            success: 'success',
+            warning: 'warning',
+        }
     }
 }
 

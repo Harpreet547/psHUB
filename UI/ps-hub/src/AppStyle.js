@@ -1,8 +1,7 @@
 
 const AppStyle = {
     App: {
-        height: '100%',
-        padding: 10
+        height: '100%'
     },
     main: {
         height: '100%'
