@@ -10,10 +10,10 @@ import {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setEmailHelpText: text => dispatch(setEmailHelpText()),
-        setEmailValidationState: ValiditionState => dispatch(setEmailValidationState()),
-        setPasswordHelpText: text => dispatch(setPasswordHelpText()),
-        setPasswordValidationState: validationState => dispatch(setPasswordValidationState())
+        setEmailHelpText: text => dispatch(setEmailHelpText(text)),
+        setEmailValidationState: validationState => dispatch(setEmailValidationState(validationState)),
+        setPasswordHelpText: text => dispatch(setPasswordHelpText(text)),
+        setPasswordValidationState: validationState => dispatch(setPasswordValidationState(validationState))
     };
 };
 

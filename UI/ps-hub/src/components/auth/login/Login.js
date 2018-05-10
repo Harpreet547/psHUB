@@ -24,6 +24,8 @@ class Login extends Component {
         var submit = document.getElementById('submitBtn');
         if(event.target.value.length > 3) {
             submit.disabled = false;
+            this.props.setEmailHelpText('User found');
+            this.props.setEmailValidationState(AppConstants.formConstants.validationStates.success);
         }
     }
 
