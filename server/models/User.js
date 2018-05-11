@@ -36,6 +36,7 @@ UserSchema.statics.saveToDB = function (userObj, callback) {
     User.create(userObj, function(err, user) {
         var error;
         var savedUser;
+        var status = false;
         if(err) {
             if(err.code == 11000) {
                 error = ErrorCodes.signUp.duplicateUser;
@@ -50,8 +51,9 @@ UserSchema.statics.saveToDB = function (userObj, callback) {
             error = null;
             user.password = undefined;
             savedUser = user;
+            status = true;
         }
-        callback(false, error, savedUser);
+        callback(status, error, savedUser);
     });
 }
 

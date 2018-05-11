@@ -1,7 +1,8 @@
 
 const ActionTypes = {
     AppActions: {
-        TOGGLE_NAV_BAR: 'TOGGLE_NAV_BAR'
+        TOGGLE_NAV_BAR: 'TOGGLE_NAV_BAR',
+        SET_APP_CONSTANTS: 'SET_APP_CONSTANTS' 
     },
     NavBarActions: {
         SET_RIGHT_ELEMENT: 'SET_RIGHT_ELEMENT',

@@ -66,10 +66,13 @@ class Login extends Component {
                             </FormGroup>
                             </Col>
                         </FormGroup>
-                        <FormGroup>
+                        <FormGroup style = { LoginStyle.submitFormGroup }>
                             <Button bsSize = 'large' id = 'submitBtn' type="submit" style = { LoginStyle.submit } disabled = { true }>Login</Button>
                         </FormGroup>
                     </Form>
+                    <div style = { LoginStyle.signUpContainerDiv }>
+                        <span style = { { margin: 'auto' } }>Not a member? <a style = { LoginStyle.signUpLink } href = '/auth/signUp'>Sign Up</a></span>
+                    </div>
                 </div>
             </div>
         );

@@ -52,6 +52,9 @@ app.use(session({
 /////***********Routes***************//////
 var authRouter = require('./routers/AuthRouter').authRouter;
 app.use('/auth', authRouter);
+
+var appConstantsRouter = require('./routers/adminRoutes/AppConstantsRoute').appConstantsRouter;
+app.use('/appConstants', appConstantsRouter);
 /////***********END Routes***************//////
 
 

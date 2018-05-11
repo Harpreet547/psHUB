@@ -37,6 +37,20 @@ const LoginStyle = {
         background: AppConstants.appTheme.primaryColor,
         color: AppConstants.appTheme.secondaryTextColor,
         
+    },
+    submitFormGroup: {
+        marginBottom: 0
+    },
+    signUpContainerDiv: { 
+        width: '100%', 
+        marginTop: 0, 
+        display: 'flex' 
+    },
+    signUpSpan: { 
+        margin: 'auto' 
+    },
+    signUpLink: {
+        color: AppConstants.appTheme.primaryColor2
     }
 }
 

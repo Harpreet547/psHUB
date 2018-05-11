@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
-import { toggleNavBar } from '../actions/AppActions';
+import { toggleNavBar, setAppConstants } from '../actions/AppActions';
 import App from '../../App';
 
 const mapDispatchToProps = dispatch => {
     return {
-        toggleNavBar: () => dispatch(toggleNavBar())
+        toggleNavBar: () => dispatch(toggleNavBar()),
+        setAppConstants: appConstants => dispatch(setAppConstants(appConstants))
     };
 }
 
 const mapStateToProps = state => {
     return {
-        navBarVisible: state.AppReducer.navBarVisible
+        navBarVisible: state.AppReducer.navBarVisible,
+        appConstants: state.AppReducer.appConstants
     };
 }
 

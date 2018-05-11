@@ -3,11 +3,17 @@ const AppConstants = {
     screenTitles: {
         main: 'PS-HUB'
     },
+    defaultAppConstants: {
+        appTitle: "PS-HUB",
+        descLine1: "PS-HUB is an interactive hub for ps owners.",
+        descLine2: "PS-HUB© belongs to ABC.org."
+    },
     appTheme: {
         primaryColor: '#FC4445',
+        primaryColor2: '#3FE0D0',
         secondaryColor: '#3FEEE6',
         tertiaryColor: '#55BCC9',
-        forthColor: '#97CAEF',
+        fourthColor: '#97CAEF',
         fifthColor: '#CAFAFE',
         primaryTextColor: 'black',
         secondaryTextColor: 'white'
@@ -18,6 +24,9 @@ const AppConstants = {
             success: 'success',
             warning: 'warning',
         }
+    },
+    urls: {
+        baseServiceUrl: 'http://localhost8282'
     }
 }
 

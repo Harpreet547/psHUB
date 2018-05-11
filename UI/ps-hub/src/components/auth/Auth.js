@@ -5,13 +5,19 @@ import {
     Col
 } from 'react-bootstrap';
 import { Route } from 'react-router-dom'
-import Blur from 'react-blur';
 
 import backgroundImage from '../../resources/auth/authBackground.jpg';
 import authStyle from './AuthStyle';
 import LoginContainer from '../../redux/containers/LoginContainer';
+import SignUp from './signUp/SignUp';
 
 class Auth extends Component {
+
+    constructor(props) {
+        super(props);
+        console.log('AUTH PROPS: ' + JSON.stringify(this.props));
+    }
+
     render() {
         return (
             <Grid style = { authStyle.root }>
@@ -28,10 +34,9 @@ class Auth extends Component {
                         <img src = { backgroundImage } style = { authStyle.image }/>
                         <div style = { authStyle.overlay } className = 'overlayDiv'>
                             <div style = { authStyle.infoDiv }>
-                                <h1 style = { authStyle.title }>PS-HUB</h1>
-                                <p style = { authStyle.text }>PS-HUB is an interactive hub for ps owners.</p>
-                                <p style = { authStyle.text }>PS-HUB© belongs to ABC.org.</p>
-                                
+                                <h1 style = { authStyle.title }>{ this.props.appConstants.appTitle }</h1>
+                                <p style = { authStyle.text }>{ this.props.appConstants.descLine1 }</p>
+                                <p style = { authStyle.text }>{ this.props.appConstants.descLine2 }</p>
                             </div>
                         </div>
                     </div>
@@ -45,6 +50,7 @@ class Auth extends Component {
                         style = { authStyle.heightFull }>
                         <div className = 'authForm' style = { authStyle.heightFull }>
                             <Route path = '/auth/login' component = { LoginContainer }/>
+                            <Route path = '/auth/signUp' component = { SignUp }/>
                         </div>
                     </Col>
                 </Row>

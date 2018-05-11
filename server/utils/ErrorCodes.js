@@ -34,6 +34,14 @@ const ErrorCodes = {
             message: 'Login Error: Entered password is wrong.'
         }
     },
+    admin: {
+        AppConstants: {
+            unableToGet: {
+                errorCode: 411,
+                message: 'AppConstants Error: Unable to get updated Constants.'
+            }
+        }
+    }
 }
 
 exports.ErrorCodes = ErrorCodes;

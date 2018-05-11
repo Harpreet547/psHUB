@@ -8,7 +8,6 @@ const initialState = {
 }
 
 export const LoginReducer = (state = initialState, action) => {
-    console.log(JSON.stringify(action));
     switch(action.type) {
         case ActionTypes.LoginActions.SET_EMAIL_HELP_TEXT:
             return { ...state, emailHelpText: action.text };
