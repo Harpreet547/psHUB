@@ -26,7 +26,7 @@ const AppConstants = {
         }
     },
     urls: {
-        baseServiceUrl: 'http://localhost8282'
+        baseServiceUrl: 'http://localhost:8282'
     }
 }
 
