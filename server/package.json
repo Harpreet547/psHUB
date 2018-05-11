@@ -1,0 +1,28 @@
+{
+  "name": "com.pshub.server",
+  "version": "1.0.0",
+  "description": "node.js server for ps-hub",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.0.17"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harpreet547/psHUB.git"
+  },
+  "author": "harpreet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Harpreet547/psHUB/issues"
+  },
+  "homepage": "https://github.com/Harpreet547/psHUB#readme"
+}
