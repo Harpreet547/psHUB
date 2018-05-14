@@ -2,7 +2,7 @@
 var ErrorCodes = require('../../utils/ErrorCodes');
 var mongoose = require('mongoose');
 
-var AppConstantsSchema = new mongoose.Schema({
+var AuthConstantsSchema = new mongoose.Schema({
     appTitle: {
         type: String,
         trim: true
@@ -19,9 +19,9 @@ var AppConstantsSchema = new mongoose.Schema({
     }
 });
 
-AppConstantsSchema.pre('save', function(next) {
+AuthConstantsSchema.pre('save', function(next) {
     var appConstants = this;
-    AppConstants.findOne({})
+    AuthConstants.findOne({})
                 .sort('-rowNumber')
                 .exec(function(error, appConstantsObj) {
                     if(error) {
@@ -34,10 +34,10 @@ AppConstantsSchema.pre('save', function(next) {
                 
 });
 
-AppConstantsSchema.statics.saveToDB = function (appConstantsObj, callback) {
-    AppConstants.create(appConstantsObj, function(err, appConstants) {
+AuthConstantsSchema.statics.saveToDB = function (authConstantsObj, callback) {
+    AuthConstants.create(authConstantsObj, function(err, authConstants) {
         var error;
-        var savedAppConstants;
+        var savedAuthConstants;
         var status = false;
         if(err) {
             error = {
@@ -45,29 +45,29 @@ AppConstantsSchema.statics.saveToDB = function (appConstantsObj, callback) {
                 message: 'Unhandled Error: ' + err.errmsg 
             };
             
-            savedAppConstants = null;
+            savedAuthConstants = null;
         }else {
             error = null;
-            savedAppConstants = appConstants;
+            savedAuthConstants = authConstants;
             status = true;
         }
-        callback(status, error, savedAppConstants);
+        callback(status, error, savedAuthConstants);
     });
 }
 
-AppConstantsSchema.statics.getLatestAppConstants = function (callback) {
-    AppConstants.findOne({})
+AuthConstantsSchema.statics.getLatestAuthConstants = function (callback) {
+    AuthConstants.findOne({})
                 .sort('-rowNumber')
-                .exec(function(error, appConstantsObj) {
+                .exec(function(error, authConstantsObj) {
                     if(error) {
-                        var err = ErrorCodes.admin.AppConstants.unableToGet;
+                        var err = ErrorCodes.admin.AuthConstants.unableToGet;
                         callback(err, null, false);
                     }else {
-                        appConstantsObj.rowNumber = undefined;
-                        callback(null, appConstantsObj, true);
+                        authConstantsObj.rowNumber = undefined;
+                        callback(null, authConstantsObj, true);
                     }
                 });
 }
 
-var AppConstants = mongoose.model('AppConstants', AppConstantsSchema);
-exports.AppConstants = AppConstants;
+var AuthConstants = mongoose.model('AuthConstants', AuthConstantsSchema);
+exports.AuthConstants = AuthConstants;

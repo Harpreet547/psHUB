@@ -83,6 +83,19 @@ UserSchema.statics.authenticate = function(loginObj, callback) {
     });
 }
 
+UserSchema.statics.checkIfUserExist = function(userObj, callback) {
+    User.findOne(userObj).exec(function(err, user) {
+        if(err) {
+            console.log('Error: ' + err);
+            var error = ErrorCodes.general.unexpected;
+            return callback(error, false, false);
+        }else if(!user) {
+            return callback(null, false, true);
+        }
+        return callback(null, true, true);
+    });
+}
+
 var User = mongoose.model('User', UserSchema);
 exports.User = User;
 

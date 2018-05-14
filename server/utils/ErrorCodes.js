@@ -35,10 +35,10 @@ const ErrorCodes = {
         }
     },
     admin: {
-        AppConstants: {
+        AuthConstants: {
             unableToGet: {
                 errorCode: 411,
-                message: 'AppConstants Error: Unable to get updated Constants.'
+                message: 'AuthConstants Error: Unable to get updated Constants.'
             }
         }
     }

@@ -11,6 +11,8 @@ import {
 import backgroundImage from '../../../resources/auth/authBackground.jpg';
 import LoginStyle from './LoginStyle';
 import AppConstants from '../../../utils/AppConstants';
+import networkManager from '../../../managers/NetworkManager';
+import Utils from '../../../utils/Utils';
 
 class Login extends Component {
     constructor(props) {
@@ -21,6 +23,27 @@ class Login extends Component {
     }
 
     onEmailValueChange(event) {
+        var value = event.target.value;
+        var reqBody = {
+            email: value
+        };
+        const url = AppConstants.urls.baseServiceUrl + '/auth/checkIfUserExist';
+        var loginComponent = this;
+        networkManager.performPostRequest(url, reqBody, function(error, response) {
+            if(Utils.objIsEmpty(response)) {
+                loginComponent.props.setEmailHelpText('');
+                loginComponent.props.setEmailValidationState(null);
+            }else if(error) {
+                loginComponent.props.setEmailHelpText('');
+                loginComponent.props.setEmailValidationState(null);
+            }else if(response.userExist) {
+                loginComponent.props.setEmailHelpText('User found');
+                loginComponent.props.setEmailValidationState(AppConstants.formConstants.validationStates.success);
+            }else if(!response.userExist) {
+                loginComponent.props.setEmailHelpText('User not found');
+                loginComponent.props.setEmailValidationState(AppConstants.formConstants.validationStates.warning);
+            }
+        });
         var submit = document.getElementById('submitBtn');
         if(event.target.value.length > 3) {
             submit.disabled = false;
@@ -50,7 +73,7 @@ class Login extends Component {
                                 lg = { 6 } >
                             <FormGroup controlId="emailGroup" validationState = { this.props.emailValidationState } style = { LoginStyle.formGroup }>
                                 <ControlLabel>Login ID</ControlLabel>
-                                <FormControl type="text" onChange = { this.onEmailValueChange }/>
+                                <FormControl type="text" autoComplete = 'off' onChange = { this.onEmailValueChange }/>
                                 <HelpBlock>{ this.props.emailHelpText }</HelpBlock>
                             </FormGroup>
                             </Col>
@@ -61,7 +84,7 @@ class Login extends Component {
                                 lg = { 6 } >
                             <FormGroup controlId="passwordGroup" validationState = { this.props.passwordValidationState } style = { LoginStyle.formGroup }>
                                 <ControlLabel>Password</ControlLabel>
-                                <FormControl type="text" onChange = { this.onPasswordValueChange }/>
+                                <FormControl type="password" onChange = { this.onPasswordValueChange }/>
                                 <HelpBlock>{this.props.passwordHelpText}</HelpBlock>
                             </FormGroup>
                             </Col>

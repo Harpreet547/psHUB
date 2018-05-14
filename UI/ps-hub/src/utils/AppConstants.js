@@ -3,7 +3,7 @@ const AppConstants = {
     screenTitles: {
         main: 'PS-HUB'
     },
-    defaultAppConstants: {
+    defaultAuthConstants: {
         appTitle: "PS-HUB",
         descLine1: "PS-HUB is an interactive hub for ps owners.",
         descLine2: "PS-HUB© belongs to ABC.org."

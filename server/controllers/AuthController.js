@@ -82,6 +82,17 @@ class AuthController {
 
     }
 
+    checkIfUserExist(userObj, callback) {
+        User.checkIfUserExist(userObj, function(error, userExist, status) {
+            var response = {
+                error: error,
+                userExist: userExist,
+                status: status
+            }
+            return callback(response);
+        });
+    }
+
     validateLoginObj(loginObj, callback) {
         var error = null;
         var status = true;

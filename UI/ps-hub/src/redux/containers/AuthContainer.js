@@ -1,13 +1,19 @@
 import { connect } from 'react-redux';
 
 import Auth from '../../components/auth/Auth';
+import { setAuthConstants } from '../actions/AuthActions';
 
-const mapStateToProps = state => {
+const mapDispatchToProps = dispatch => {
     return {
-        navBarVisible: state.AppReducer.navBarVisible,
-        appConstants: state.AppReducer.appConstants
+        setAuthConstants: authConstants => dispatch(setAuthConstants(authConstants))
     };
 }
 
-const AuthContainer = connect(mapStateToProps)(Auth);
+const mapStateToProps = state => {
+    return {
+        authConstants: state.AuthReducer.authConstants
+    };
+}
+
+const AuthContainer = connect(mapStateToProps, mapDispatchToProps)(Auth);
 export default AuthContainer;

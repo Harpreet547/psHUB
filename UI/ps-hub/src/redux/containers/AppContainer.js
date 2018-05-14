@@ -5,7 +5,6 @@ import App from '../../App';
 const mapDispatchToProps = dispatch => {
     return {
         toggleNavBar: () => dispatch(toggleNavBar()),
-        setAppConstants: appConstants => dispatch(setAppConstants(appConstants))
     };
 }
 

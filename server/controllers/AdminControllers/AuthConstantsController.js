@@ -1,9 +1,9 @@
 var utils = require('../../utils/Utils').utils;
 var ErrorCodes = require('../../utils/Utils').ErrorCodes;
 
-var AppConstants = require('../../models/AdminModels/AppConstants').AppConstants;
+var AuthConstants = require('../../models/AdminModels/AuthConstants').AuthConstants;
 
-class AppConstantsController {
+class AuthConstantsController {
     saveNewDetails(reqBody, callback) {
         var isEmpty = utils.objIsEmpty(reqBody);
         if(isEmpty) {
@@ -16,7 +16,7 @@ class AppConstantsController {
             return callback(response);
         }
 
-        this.validateAppConstantsObj(reqBody, function(error, isValid) {
+        this.validateAuthConstantsObj(reqBody, function(error, isValid) {
             if(!isValid) {
                 var response = {
                     appConstants: null,
@@ -26,17 +26,17 @@ class AppConstantsController {
                 return callback(response);
             }
 
-            var appConstantsObj = {
+            var authConstantsObj = {
                 appTitle: reqBody.appTitle,
                 descLine1: reqBody.descLine1,
                 descLine2: reqBody.descLine2,
                 rowNumber: 0
             }
 
-            AppConstants.saveToDB(appConstantsObj, function(status, error, appConstants) {
+            AuthConstants.saveToDB(authConstantsObj, function(status, error, authConstants) {
                 var response = {
                     error: error,
-                    appConstants: appConstants,
+                    authConstants: authConstants,
                     status: status
                 }
                 return callback(response);
@@ -44,21 +44,21 @@ class AppConstantsController {
         });
     }
 
-    getLatestAppConstants(callback) {
-        AppConstants.getLatestAppConstants(function(error, appConstants, status) {
+    getLatestAuthConstants(callback) {
+        AuthConstants.getLatestAuthConstants(function(error, authConstants, status) {
             var response = {
                 error: error,
-                appConstants: appConstants,
+                authConstants: authConstants,
                 status: status
             }
             callback(response);
         });
     }
 
-    validateAppConstantsObj(appConstantsObj, callback) {
+    validateAuthConstantsObj(authConstantsObj, callback) {
         var error = null;
         var status = true;
-        if( !( utils.objHasProperty(appConstantsObj, 'appTitle') && utils.objHasProperty(appConstantsObj, 'descLine1') && utils.objHasProperty(appConstantsObj, 'descLine2') ) ) {
+        if( !( utils.objHasProperty(authConstantsObj, 'appTitle') && utils.objHasProperty(authConstantsObj, 'descLine1') && utils.objHasProperty(authConstantsObj, 'descLine2') ) ) {
             error = ErrorCodes.general.improperReqBody;
             status = false;
         }
@@ -66,4 +66,4 @@ class AppConstantsController {
     }
 }
 
-exports.appConstantsController = new AppConstantsController();
+exports.authConstantsController = new AuthConstantsController();

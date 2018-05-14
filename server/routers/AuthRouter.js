@@ -18,4 +18,11 @@ authRouter.post('/login', function(req, res) {
     });
 });
 
+authRouter.post('/checkIfUserExist', function(req, res) {
+    var reqBody = req.body;
+    authController.checkIfUserExist(reqBody, function(response) {
+        res.send(response);
+    });
+}); 
+
 exports.authRouter = authRouter;

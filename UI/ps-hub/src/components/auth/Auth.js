@@ -10,12 +10,23 @@ import backgroundImage from '../../resources/auth/authBackground.jpg';
 import authStyle from './AuthStyle';
 import LoginContainer from '../../redux/containers/LoginContainer';
 import SignUp from './signUp/SignUp';
+import AuthController from '../../controllers/AuthController';
+import authController from '../../controllers/AuthController';
 
 class Auth extends Component {
 
     constructor(props) {
         super(props);
         console.log('AUTH PROPS: ' + JSON.stringify(this.props));
+        this.getLatestAuthConstants = this.getLatestAuthConstants.bind(this);
+        this.getLatestAuthConstants();
+    }
+
+    getLatestAuthConstants() {
+        var auth = this;
+        authController.getLatestAuthConstants(function(authConstants) {
+          auth.props.setAuthConstants(authConstants);
+        });
     }
 
     render() {
@@ -34,9 +45,9 @@ class Auth extends Component {
                         <img src = { backgroundImage } style = { authStyle.image }/>
                         <div style = { authStyle.overlay } className = 'overlayDiv'>
                             <div style = { authStyle.infoDiv }>
-                                <h1 style = { authStyle.title }>{ this.props.appConstants.appTitle }</h1>
-                                <p style = { authStyle.text }>{ this.props.appConstants.descLine1 }</p>
-                                <p style = { authStyle.text }>{ this.props.appConstants.descLine2 }</p>
+                                <h1 style = { authStyle.title }>{ this.props.authConstants.appTitle }</h1>
+                                <p style = { authStyle.text }>{ this.props.authConstants.descLine1 }</p>
+                                <p style = { authStyle.text }>{ this.props.authConstants.descLine2 }</p>
                             </div>
                         </div>
                     </div>
