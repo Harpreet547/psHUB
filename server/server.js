@@ -3,12 +3,17 @@ var url = require('url');
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-
+var path = require('path');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var session = require('express-session')
 
 var https = require('https');
+
+var multer = require('multer')
+var upload = multer({
+    dest: __dirname + 'uploads/'
+})
 /////***********END Require***************//////
 
 /////***********Var***************//////
@@ -47,6 +52,9 @@ app.use(session({
     resave: true,
     saveUninitialized: false
 }));
+
+app.use("/uploads", express.static(__dirname + '/uploads'));
+
 /////***********END App Use***************//////
 
 /////***********Routes***************//////
@@ -88,4 +96,40 @@ app.all('*', function(req, res, next) {
 app.get('/', function(req, res) {
     res.send('<h1>PS Buck Server</h1>');
 });
+
+app.post('/upload', upload.single('file'), function(req, res, next) {
+    if (req.file != undefined) {
+        var tempPath = req.file.path;
+        var tempName = req.file.originalname;
+        var random = Math.random().toString(36).replace(/[^1-9]+/g, '').substr(0, 5);
+        var imgPath = 'uploads/' + random + '-' + tempName
+        var targetPath = path.resolve('uploads/' + random + '-' + tempName);
+        if (path.extname(tempName).toLowerCase() === '.png' || path.extname(tempName).toLowerCase() === '.jpg' || path.extname(tempName).toLowerCase() === '.jpeg') {
+            fs.rename(tempPath, targetPath, function(err) {
+                if (err) {
+                    console.log('ERROR: ' + JSON.stringify(err));
+                    
+                }
+                console.log("Upload completed!");
+                
+                var para = req.body;
+                para['url'] = 'http://localhost:8282/' + imgPath;
+                console.log(req.headers);
+                
+                res.send(para);
+            });
+        } else {
+            fs.unlink(tempPath, function(err) {
+                if (err) throw err;
+                console.error("Only .png files are allowed!");
+                res.send('Only .png files are allowed!');
+            });
+        }
+    } else {
+        var para = req.body;
+
+        res.send('File not found.');
+    }
+
+})
 /////***********END APP METHODS***************//////

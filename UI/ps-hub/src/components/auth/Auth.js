@@ -19,6 +19,7 @@ class Auth extends Component {
         super(props);
         console.log('AUTH PROPS: ' + JSON.stringify(this.props));
         this.getLatestAuthConstants = this.getLatestAuthConstants.bind(this);
+        this.setAuthBackground = this.setAuthBackground.bind(this);
         this.getLatestAuthConstants();
     }
 
@@ -27,6 +28,14 @@ class Auth extends Component {
         authController.getLatestAuthConstants(function(authConstants) {
           auth.props.setAuthConstants(authConstants);
         });
+    }
+
+    setAuthBackground() {
+        if(this.props.authConstants.authBackground) {
+            return this.props.authConstants.authBackground;
+        }else {
+            return backgroundImage;
+        }
     }
 
     render() {
@@ -42,7 +51,7 @@ class Auth extends Component {
                         style = { authStyle.heightFull }>
                     {/* <Blur img = { backgroundImage } style = { authStyle.image } blurRadius = { 100 }/> */}
                     <div style = { { height: '100%', width: '100%', background: 'black' } }>
-                        <img src = { backgroundImage } style = { authStyle.image }/>
+                        <img src = { this.setAuthBackground() } style = { authStyle.image }/>
                         <div style = { authStyle.overlay } className = 'overlayDiv'>
                             <div style = { authStyle.infoDiv }>
                                 <h1 style = { authStyle.title }>{ this.props.authConstants.appTitle }</h1>

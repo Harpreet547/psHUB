@@ -1,5 +1,5 @@
 var utils = require('../../utils/Utils').utils;
-var ErrorCodes = require('../../utils/Utils').ErrorCodes;
+var ErrorCodes = require('../../utils/ErrorCodes').ErrorCodes;
 
 var AuthConstants = require('../../models/AdminModels/AuthConstants').AuthConstants;
 
@@ -30,6 +30,7 @@ class AuthConstantsController {
                 appTitle: reqBody.appTitle,
                 descLine1: reqBody.descLine1,
                 descLine2: reqBody.descLine2,
+                authBackground: reqBody.authBackground,
                 rowNumber: 0
             }
 
@@ -58,7 +59,7 @@ class AuthConstantsController {
     validateAuthConstantsObj(authConstantsObj, callback) {
         var error = null;
         var status = true;
-        if( !( utils.objHasProperty(authConstantsObj, 'appTitle') && utils.objHasProperty(authConstantsObj, 'descLine1') && utils.objHasProperty(authConstantsObj, 'descLine2') ) ) {
+        if( !( utils.objHasProperty(authConstantsObj, 'appTitle') && utils.objHasProperty(authConstantsObj, 'descLine1') && utils.objHasProperty(authConstantsObj, 'descLine2') && utils.objHasProperty(authConstantsObj, 'authBackground') ) ) {
             error = ErrorCodes.general.improperReqBody;
             status = false;
         }

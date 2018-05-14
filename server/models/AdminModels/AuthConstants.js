@@ -16,6 +16,9 @@ var AuthConstantsSchema = new mongoose.Schema({
     },
     rowNumber: {
         type: Number
+    },
+    authBackground: {
+        type: String
     }
 });
 
