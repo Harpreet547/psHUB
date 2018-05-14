@@ -6,11 +6,12 @@ import { Route } from 'react-router-dom'
 import AuthContainer from './redux/containers/AuthContainer';
 import NavBarContainer from './redux/containers/NavBarContainer';
 import AppStyle from './AppStyle';
+import Home from './components/home/home';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    console.log('APP PROPS: ' + JSON.stringify(this.props));
+    //console.log('APP PROPS: ' + JSON.stringify(this.props));
   }
 
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
         
         <div className='main' style = { AppStyle.main }>
           <Route path='/auth' component={ AuthContainer }/>
+          <Route path='/home' component={ Home }/>
         </div>
       </div>
     );

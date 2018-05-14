@@ -83,10 +83,11 @@ class AuthController {
     }
 
     checkIfUserExist(userObj, callback) {
-        User.checkIfUserExist(userObj, function(error, userExist, status) {
+        User.checkIfUserExist(userObj, function(error, userExist, profilePic, status) {
             var response = {
                 error: error,
                 userExist: userExist,
+                profilePic: profilePic,
                 status: status
             }
             return callback(response);

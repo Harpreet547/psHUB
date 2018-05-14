@@ -8,7 +8,7 @@ class NavBar extends Component {
 
     constructor(props) {
         super(props);
-        console.log('NAVBAR STATE: ' + JSON.stringify(this.props));
+        //console.log('NAVBAR STATE: ' + JSON.stringify(this.props));
     }
 
     getNavBarRightElement() {
@@ -31,7 +31,7 @@ class NavBar extends Component {
         return (
             <Navbar style = { NavBarStyle.NavBar }>
                 <Navbar.Header>
-                    <img className = 'navbar-left' style = { NavBarStyle.BrandImage }/>
+                    <img className = 'navbar-left' style = { NavBarStyle.BrandImage } alt = 'logo'/>
                     <Navbar.Brand>
                         <p style = { NavBarStyle.BrandTitle }>{ this.props.barTitle }</p>
                     </Navbar.Brand>

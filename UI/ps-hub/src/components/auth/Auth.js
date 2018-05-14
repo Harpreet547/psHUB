@@ -10,14 +10,13 @@ import backgroundImage from '../../resources/auth/authBackground.jpg';
 import authStyle from './AuthStyle';
 import LoginContainer from '../../redux/containers/LoginContainer';
 import SignUp from './signUp/SignUp';
-import AuthController from '../../controllers/AuthController';
 import authController from '../../controllers/AuthController';
 
 class Auth extends Component {
 
     constructor(props) {
         super(props);
-        console.log('AUTH PROPS: ' + JSON.stringify(this.props));
+        //console.log('AUTH PROPS: ' + JSON.stringify(this.props));
         this.getLatestAuthConstants = this.getLatestAuthConstants.bind(this);
         this.setAuthBackground = this.setAuthBackground.bind(this);
         this.getLatestAuthConstants();
@@ -51,7 +50,7 @@ class Auth extends Component {
                         style = { authStyle.heightFull }>
                     {/* <Blur img = { backgroundImage } style = { authStyle.image } blurRadius = { 100 }/> */}
                     <div style = { { height: '100%', width: '100%', background: 'black' } }>
-                        <img src = { this.setAuthBackground() } style = { authStyle.image }/>
+                        <img src = { this.setAuthBackground() } style = { authStyle.image } alt = 'background'/>
                         <div style = { authStyle.overlay } className = 'overlayDiv'>
                             <div style = { authStyle.infoDiv }>
                                 <h1 style = { authStyle.title }>{ this.props.authConstants.appTitle }</h1>

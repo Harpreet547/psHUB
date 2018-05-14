@@ -4,7 +4,8 @@ const initialState = {
     emailHelpText: '',
     passwordHelpText: '',
     emailValidationState: null,
-    passwordValidationState: null
+    passwordValidationState: null,
+    profilePicUrl: ''
 }
 
 export const LoginReducer = (state = initialState, action) => {
@@ -20,6 +21,9 @@ export const LoginReducer = (state = initialState, action) => {
 
         case ActionTypes.LoginActions.SET_PASSWORD_VALIDATION_STATE:
             return { ...state, passwordValidationState: action.validationState };
+
+        case ActionTypes.LoginActions.SET_PROFILE_PIC:
+            return { ...state, profilePicUrl: action.profilePicUrl }
 
         default:
             return state;

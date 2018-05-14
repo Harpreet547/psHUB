@@ -19,3 +19,9 @@ export const setPasswordValidationState = validationState => ({
     type: ActionTypes.LoginActions.SET_PASSWORD_VALIDATION_STATE,
     validationState: validationState
 });
+
+
+export const setProfilePic = profilePicUrl => ({
+    type: ActionTypes.LoginActions.SET_PROFILE_PIC,
+    profilePicUrl: profilePicUrl
+});

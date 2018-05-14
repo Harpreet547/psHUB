@@ -18,6 +18,9 @@ var UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    profilePic: {
+        type: String
     }
 });
 
@@ -84,7 +87,10 @@ UserSchema.statics.authenticate = function(loginObj, callback) {
 }
 
 UserSchema.statics.checkIfUserExist = function(userObj, callback) {
-    User.findOne(userObj).exec(function(err, user) {
+    var findByEmail = {
+        email: userObj.email
+    }
+    User.findOne(findByEmail).exec(function(err, user) {
         if(err) {
             console.log('Error: ' + err);
             var error = ErrorCodes.general.unexpected;
@@ -92,7 +98,7 @@ UserSchema.statics.checkIfUserExist = function(userObj, callback) {
         }else if(!user) {
             return callback(null, false, true);
         }
-        return callback(null, true, true);
+        return callback(null, true, user.profilePic, true);
     });
 }
 

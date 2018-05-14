@@ -5,7 +5,8 @@ import {
     setEmailHelpText, 
     setPasswordHelpText, 
     setEmailValidationState, 
-    setPasswordValidationState 
+    setPasswordValidationState,
+    setProfilePic 
 } from '../actions/LoginActions';
 
 const mapDispatchToProps = dispatch => {
@@ -13,7 +14,8 @@ const mapDispatchToProps = dispatch => {
         setEmailHelpText: text => dispatch(setEmailHelpText(text)),
         setEmailValidationState: validationState => dispatch(setEmailValidationState(validationState)),
         setPasswordHelpText: text => dispatch(setPasswordHelpText(text)),
-        setPasswordValidationState: validationState => dispatch(setPasswordValidationState(validationState))
+        setPasswordValidationState: validationState => dispatch(setPasswordValidationState(validationState)),
+        setProfilePic: profilePicUrl => dispatch(setProfilePic(profilePicUrl))
     };
 };
 
@@ -22,7 +24,8 @@ const mapStateToProps = state => {
         emailHelpText: state.LoginReducer.emailHelpText,
         passwordHelpText: state.LoginReducer.passwordHelpText,
         emailValidationState: state.LoginReducer.emailValidationState,
-        passwordValidationState: state.LoginReducer.passwordValidationState
+        passwordValidationState: state.LoginReducer.passwordValidationState,
+        profilePicUrl: state.LoginReducer.profilePicUrl
     }
 }
 
