@@ -26,7 +26,9 @@ class Login extends Component {
         this.enableSubmit = this.enableSubmit.bind(this);
         this.getProfilePic = this.getProfilePic.bind(this);
         this.onLoginTap = this.onLoginTap.bind(this);
+        this.login = this.login.bind(this);
 
+        this.login();
     }
     
     componentDidMount() {
@@ -72,16 +74,19 @@ class Login extends Component {
             email: email,
             password: password
         };
-        loginController.login(loginObj, (response) => {
-            console.log('Login success: ' + JSON.stringify(response));
-            if(response.status) {
-                historyManager.pushRoute('/home', this.props);
-            }
-        });
+        this.login(loginObj);
         return false;
     }
 
-    
+    login(loginObj) {
+        loginController.login(loginObj, (response) => {
+            console.log('Login success: ' + JSON.stringify(response));
+            if(response.status || response.error.errorCode === 303) { //303: Already logged in
+                historyManager.pushRoute('/home', this.props);
+            }
+
+        });
+    }
 
     getProfilePic() {
         if(this.props.profilePicUrl) {

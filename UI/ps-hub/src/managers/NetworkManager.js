@@ -4,6 +4,8 @@ class NetworkManager {
     performGetRequest(url, callback) {
         fetch(url, {
             method: 'Get',
+            credentials: 'include',
+            //mode: 'cors',
             //body: JSON.stringify(reqBody),
             headers: {'Content-Type': 'application/json'},
         }).then(response => response.json(), error => {
@@ -23,7 +25,12 @@ class NetworkManager {
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(reqBody),
-            headers: {'Content-Type': 'application/json'},
+            credentials: 'include',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
         }).then(response => response.json(), error => {
             //console.log('ERROR IN FETCH LOGIN: ' + error)
             callback(error, null);

@@ -1,6 +1,9 @@
 /////***********Require***************//////
 var url = require('url');
 var express = require('express');
+
+var cors = require('cors');
+
 var app = express();
 var http = require('http').Server(app);
 var path = require('path');
@@ -50,8 +53,32 @@ app.use(bodyParser.urlencoded({
 app.use(session({
     secret: 'Work Hard',
     resave: true,
-    saveUninitialized: false
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: false,
+    }
 }));
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+}));
+/*
+var allowedOrigins = ['http://localhost:3000',
+                      'http://yourapp.com'];
+app.use(cors({
+  origin: function(origin, callback){
+    // allow requests with no origin 
+    // (like mobile apps or curl requests)
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
+}));
+*/
 
 app.use("/uploads", express.static(__dirname + '/uploads'));
 
@@ -68,8 +95,6 @@ app.use('/authConstants', authConstantsRouter);
 
 /////***********APP METHODS***************//////
 app.all('*', function(req, res, next) {
-
-    res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-type,Accept,X-Access-Token,X-Key');
     //Redirect from HTTP to HTTPS

@@ -8,6 +8,7 @@ import NavBarContainer from './redux/containers/NavBarContainer';
 import AppStyle from './AppStyle';
 import Home from './components/home/home';
 
+
 class App extends Component {
   constructor(props) {
     super(props);

@@ -7,6 +7,7 @@ class AuthController {
 
     login(reqBody, callback) {
         var isEmpty = utils.objIsEmpty(reqBody);
+        
         if(isEmpty) {
             const error = ErrorCodes.general.emptyReqBody;
             const response = {

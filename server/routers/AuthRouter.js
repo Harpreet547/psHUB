@@ -2,6 +2,7 @@ var express = require('express');
 var authRouter = express.Router();
 
 var authController = require('../controllers/AuthController').authController;
+var ErrorCodes = require('../utils/ErrorCodes').ErrorCodes;
 
 authRouter.post('/signUp', function(req, res) {
     var reqBody = req.body;
@@ -12,10 +13,33 @@ authRouter.post('/signUp', function(req, res) {
 });
 
 authRouter.post('/login', function(req, res) {
+    
     var reqBody = req.body;
-    authController.login(reqBody, function(response) {
+    
+    if(req.session.userID) {
+        var error = ErrorCodes.login.alreadyLoggedIn;
+        var response = {
+            error: error,
+            sessionToken: req.session.userID,
+            status: false 
+        };
         res.send(response);
-    });
+    }else {
+        authController.login(reqBody, function(result) {
+            var sessionToken = null;
+            if(result.status) {
+                req.session.userID = result.user._id;
+                sessionToken = result.user._id;
+            }
+            var response = {
+                error: result.error,
+                sessionToken: sessionToken,
+                status: result.status
+            };
+            res.send(response);
+        });
+    }
+    
 });
 
 authRouter.post('/checkIfUserExist', function(req, res) {

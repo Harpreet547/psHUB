@@ -32,6 +32,10 @@ const ErrorCodes = {
         wrongPassword: {
             errorCode: 302,
             message: 'Login Error: Entered password is wrong.'
+        },
+        alreadyLoggedIn: {
+            errorCode: 303,
+            message: 'Login Error: User already logged in.'
         }
     },
     admin: {

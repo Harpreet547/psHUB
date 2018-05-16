@@ -10,11 +10,6 @@ var UserSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    username: {
-        type: String,
-        unique: true,
-        trim: true
-    },
     password: {
         type: String,
         required: true
@@ -41,6 +36,7 @@ UserSchema.statics.saveToDB = function (userObj, callback) {
         var savedUser;
         var status = false;
         if(err) {
+            console.log('SignUP Error: ' + JSON.stringify(err));
             if(err.code == 11000) {
                 error = ErrorCodes.signUp.duplicateUser;
             }else {
