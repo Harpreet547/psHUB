@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import networkManager from '../../managers/NetworkManager';
 
 class Home extends Component {
 

@@ -9,6 +9,7 @@ import ArticleContainer from './home/Articles/ArticleContainer';
 import AppConstants from '../utils/AppConstants';
 
 class App extends Component {
+  // eslint-disable-next-line 
   constructor(props) {
     super(props);
     //console.log('APP PROPS: ' + JSON.stringify(this.props));
