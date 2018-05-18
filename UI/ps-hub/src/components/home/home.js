@@ -7,6 +7,7 @@ class Home extends Component {
         super(props);
         console.log('Home PROPS: ' + JSON.stringify(this.props));
         this.props.setNavBarVisibility(true);
+        this.props.setActiveTab(1);
     }
 
     render() {
