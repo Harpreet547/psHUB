@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 
-import Login from '../../components/auth/login/Login';
+import Login from './Login';
 import { 
     setEmailHelpText, 
     setPasswordHelpText, 
     setEmailValidationState, 
     setPasswordValidationState,
     setProfilePic 
-} from '../actions/LoginActions';
+} from './LoginActions';
 
 const mapDispatchToProps = dispatch => {
     return {

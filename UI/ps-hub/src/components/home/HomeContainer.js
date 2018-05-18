@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import Home from '../../components/home/Home';
-import { setNavBarVisibility } from '../actions/AppActions';
-import { setActiveTab } from '../actions/NavBarActions';
+import Home from './Home';
+import { setNavBarVisibility } from '../AppActions';
+import { setActiveTab } from '../navBar/NavBarActions';
 
 const mapDispatchToProps = dispatch => {
     return {

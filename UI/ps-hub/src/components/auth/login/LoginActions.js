@@ -1,4 +1,4 @@
-import ActionTypes from '../reduxConstants/ActionTypes';
+import ActionTypes from '../../../redux/reduxConstants/ActionTypes';
 
 export const setEmailHelpText = text => ({
     type: ActionTypes.LoginActions.SET_EMAIL_HELP_TEXT,

@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
 
-//import appController from './controllers/AppController';
-//import Auth from './components/auth/Auth';
-import AuthContainer from './redux/containers/AuthContainer';
-import NavBarContainer from './redux/containers/NavBarContainer';
+import AuthContainer from './auth/AuthContainer';
+import NavBarContainer from './navBar/NavBarContainer';
 import AppStyle from './AppStyle';
-import HomeContainer from './redux/containers/HomeContainer';
-import ArticlesContainer from './redux/containers/ArticlesContainer';
-import AppConstants from './utils/AppConstants';
-import ArticleContainer from './redux/containers/ArticlesContainer';
+import HomeContainer from './home/HomeContainer';
+import ArticleContainer from './home/Articles/ArticleContainer';
+import AppConstants from '../utils/AppConstants';
 
 class App extends Component {
   constructor(props) {

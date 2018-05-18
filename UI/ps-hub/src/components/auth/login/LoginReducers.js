@@ -1,4 +1,4 @@
-import ActionTypes from '../reduxConstants/ActionTypes';
+import ActionTypes from '../../../redux/reduxConstants/ActionTypes';
 
 const initialState = {
     emailHelpText: '',

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import NavBar from '../../components/navBar/NavBar';
+import NavBar from './NavBar';
 import {    
             setActiveTab,
             setBarTitle 
-        } from '../actions/NavBarActions';
+        } from './NavBarActions';
 
 const mapDispatchToProps = dispatch => {
     return {

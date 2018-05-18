@@ -1,5 +1,5 @@
 
-import ActionTypes from '../reduxConstants/ActionTypes';
+import ActionTypes from '../../redux/reduxConstants/ActionTypes';
 
 export const setBarTitle = title => ({
     type: ActionTypes.NavBarActions.SET_TITLE,

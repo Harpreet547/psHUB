@@ -1,5 +1,4 @@
-import ActionTypes from '../reduxConstants/ActionTypes';
-import NavBarElementConstants from '../reduxConstants/NavBarElementConstants';
+import ActionTypes from '../../redux/reduxConstants/ActionTypes';
 import AppConstants from '../../utils/AppConstants';
 
 const initialState = {
@@ -14,7 +13,6 @@ export const NavBarElementsReducer = (state = initialState, action) => {
 
         case ActionTypes.NavBarActions.SET_ACTIVE_TAB:
             return { ...state, activeTab: action.activeTab };    
-            break;
 
         default:
             return state;

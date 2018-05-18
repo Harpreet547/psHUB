@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { setNavBarVisibility } from '../actions/AppActions';
-import App from '../../App';
+import { setNavBarVisibility } from './AppActions';
+import App from './App';
 
 const mapDispatchToProps = dispatch => {
     return {

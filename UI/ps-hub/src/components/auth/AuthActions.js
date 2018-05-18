@@ -1,4 +1,4 @@
-import ActionTypes from '../reduxConstants/ActionTypes';
+import ActionTypes from '../../redux/reduxConstants/ActionTypes';
 
 
 export const setAuthConstants = authConstants => ({

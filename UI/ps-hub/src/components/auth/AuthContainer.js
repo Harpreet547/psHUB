@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import Auth from '../../components/auth/Auth';
-import { setAuthConstants } from '../actions/AuthActions';
+import Auth from './Auth';
+import { setAuthConstants } from './AuthActions';
 
 const mapDispatchToProps = dispatch => {
     return {

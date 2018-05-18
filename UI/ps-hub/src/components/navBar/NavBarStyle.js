@@ -4,6 +4,7 @@ const NavBarStyle = {
     NavBar: {
         borderRadius: 0,
         //background: AppConstants.appTheme.primaryColor,
+        background: 'white',
         height: 50,
     },
     NavBarHeader: {
@@ -43,6 +44,9 @@ const NavBarStyle = {
         margin: 'auto', 
         paddingTop: 15, 
         paddingBottom: 15 
+    },
+    navBarCollapse: { 
+        background: 'white' 
     }
 }
 

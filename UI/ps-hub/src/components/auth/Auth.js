@@ -8,7 +8,7 @@ import { Route } from 'react-router-dom'
 
 import backgroundImage from '../../resources/auth/authBackground.jpg';
 import authStyle from './AuthStyle';
-import LoginContainer from '../../redux/containers/LoginContainer';
+import LoginContainer from './login/LoginContainer';
 import SignUp from './signUp/SignUp';
 import authController from '../../controllers/AuthController';
 import AppConstants from '../../utils/AppConstants';
