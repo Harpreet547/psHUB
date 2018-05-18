@@ -11,6 +11,7 @@ import authStyle from './AuthStyle';
 import LoginContainer from '../../redux/containers/LoginContainer';
 import SignUp from './signUp/SignUp';
 import authController from '../../controllers/AuthController';
+import AppConstants from '../../utils/AppConstants';
 
 class Auth extends Component {
 
@@ -68,8 +69,8 @@ class Auth extends Component {
                         lg = { 6 } 
                         style = { authStyle.heightFull }>
                         <div className = 'authForm' style = { authStyle.heightFull }>
-                            <Route path = '/auth/login' component = { LoginContainer }/>
-                            <Route path = '/auth/signUp' component = { SignUp }/>
+                            <Route path = { AppConstants.routes.login } component = { LoginContainer }/>
+                            <Route path = { AppConstants.routes.signup } component = { SignUp }/>
                         </div>
                     </Col>
                 </Row>

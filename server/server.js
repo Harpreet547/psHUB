@@ -20,8 +20,8 @@ var upload = multer({
 /////***********END Require***************//////
 
 /////***********Var***************//////
-var privateKey = fs.readFileSync('./sslCertKey/server.key', 'utf8');
-var certificate = fs.readFileSync('sslCertKey/server.crt', 'utf8');
+var privateKey = fs.readFileSync('./sslCertKey/psHUB.key', 'utf8');
+var certificate = fs.readFileSync('sslCertKey/psHUB.crt', 'utf8');
 
 var credentials = {key: privateKey, cert: certificate};
 var httpsServer = https.createServer(credentials, app);

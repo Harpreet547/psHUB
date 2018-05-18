@@ -27,6 +27,13 @@ const AppConstants = {
     },
     urls: {
         baseServiceUrl: 'http://localhost:8282'
+    },
+    routes: {
+        home: '/home',
+        articles: '/articles',
+        auth: '/auth',
+        login: '/auth/login',
+        signup: '/auth/signUp'
     }
 }
 

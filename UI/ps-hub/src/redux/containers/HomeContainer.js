@@ -1,18 +1,22 @@
 import { connect } from 'react-redux';
+
+import Home from '../../components/home/Home';
 import { setNavBarVisibility } from '../actions/AppActions';
-import App from '../../App';
+import { setActiveTab } from '../actions/NavBarActions';
 
 const mapDispatchToProps = dispatch => {
     return {
         setNavBarVisibility: isVisible => dispatch(setNavBarVisibility(isVisible)),
+        setActiveTab: activeTab => dispatch(setActiveTab(activeTab))
     };
 }
 
 const mapStateToProps = state => {
     return {
         navBarVisible: state.AppReducer.navBarVisible,
+        activeTab: state.NavBarElementsReducer.activeTab
     };
 }
 
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
-export default AppContainer;
+const HomeContainer = connect(mapStateToProps, mapDispatchToProps)(Home);
+export default HomeContainer;

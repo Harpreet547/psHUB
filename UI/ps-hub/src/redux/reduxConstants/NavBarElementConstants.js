@@ -2,7 +2,6 @@
 const NavBarElementConstants = {
     rightElements: {
         Empty: 'Empty',
-        RightTabs: 'RightTabs'
     },
     leftElements: {
         Empty: 'Empty'

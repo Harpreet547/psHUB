@@ -1,15 +1,14 @@
 
 const ActionTypes = {
     AppActions: {
-        TOGGLE_NAV_BAR: 'TOGGLE_NAV_BAR',
+        SET_NAV_BAR_VISIBILITY: 'SET_NAV_BAR_VISIBILITY',
     },
     AuthActions: {
         SET_AUTH_CONSTANTS: 'SET_AUTH_CONSTANTS' 
     },
     NavBarActions: {
-        SET_RIGHT_ELEMENT: 'SET_RIGHT_ELEMENT',
-        SET_LEFT_ELEMENT: 'SET_LEFT_ELEMENT',
-        SET_TITLE: 'SET_TITLE'
+        SET_TITLE: 'SET_TITLE',
+        SET_ACTIVE_TAB: 'SET_ACTIVE_TAB'
     },
     LoginActions: {
         SET_EMAIL_HELP_TEXT: 'SET_EMAIL_HELP_TEXT',

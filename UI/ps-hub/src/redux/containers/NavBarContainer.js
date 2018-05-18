@@ -1,24 +1,21 @@
 import { connect } from 'react-redux';
 import NavBar from '../../components/navBar/NavBar';
 import {    
-            setRightElement, 
-            setLeftElement, 
+            setActiveTab,
             setBarTitle 
         } from '../actions/NavBarActions';
 
 const mapDispatchToProps = dispatch => {
     return {
-        setRightElement: element => dispatch(setRightElement(element)),
-        setLeftElement: element => dispatch(setLeftElement(element)),
-        setBarTitle: title => dispatch(setBarTitle(title))
+        setBarTitle: title => dispatch(setBarTitle(title)),
+        setActiveTab: activeTab => dispatch(setActiveTab(activeTab))
     };
 }
 
 const mapStateToProps = state => {
     return {
-        rightElement: state.NavBarElementsReducer.rightElement,
-        leftElement: state.NavBarElementsReducer.leftElement,
-        barTitle: state.NavBarElementsReducer.barTitle
+        barTitle: state.NavBarElementsReducer.barTitle,
+        activeTab: state.NavBarElementsReducer.activeTab
     };
 };
 
