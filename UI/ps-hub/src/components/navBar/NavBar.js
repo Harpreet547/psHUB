@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import NavBarStyle from './NavBarStyle';
 import { Navbar, Nav, NavDropdown, NavItem, MenuItem } from 'react-bootstrap';
 import logo from '../../resources/main/logo.png';
-import more from '../../resources/main/more.png';
 import AppConstants from '../../utils/AppConstants';
 import historyManager from '../../managers/HistoryManager';
 
@@ -43,7 +42,7 @@ class NavBar extends Component {
     
     render() {
         return (
-            <Navbar style = { NavBarStyle.NavBar }>
+            <Navbar fixedTop = { false } staticTop = { true } style = { NavBarStyle.NavBar }>
                 <img className = 'pull-left' src = { logo } style = { NavBarStyle.BrandImage } alt = 'logo'/>
                  <Navbar.Header style = { NavBarStyle.NavBarHeader }>
                     <Navbar.Brand style = { NavBarStyle.Brand }>

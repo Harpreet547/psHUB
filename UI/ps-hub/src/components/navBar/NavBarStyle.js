@@ -3,9 +3,7 @@ import AppConstants from '../../utils/AppConstants';
 const NavBarStyle = {
     NavBar: {
         borderRadius: 0,
-        //background: AppConstants.appTheme.primaryColor,
         background: 'white',
-        height: 50,
     },
     NavBarHeader: {
         padding: 0,
