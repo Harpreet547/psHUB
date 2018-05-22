@@ -1,3 +1,4 @@
+//@flow
 import AppConstants from '../utils/AppConstants';
 import networkManager from '../managers/NetworkManager';
 
@@ -6,15 +7,16 @@ const serverPathsForAuth = {
 }
 
 class AuthController {
-    getLatestAuthConstants(callback) {
+    getLatestAuthConstants(callback: (authConstants: AuthConstantsObject) => void) {
         var url = AppConstants.urls.baseServiceUrl + serverPathsForAuth.getLatestAuthConstants;
         networkManager.performGetRequest(url, function(error, response) {
-            var authConstants = {};
+            var authConstants: AuthConstantsObject = AppConstants.defaultAuthConstants;
             if(error) {
-                console.log('AppController Error: ' + JSON.stringify(error));
                 authConstants = AppConstants.defaultAuthConstants;
-            }else {
-                authConstants = response.authConstants;
+            }else if(response !== undefined && response !== null) {
+                if(response.authConstants !== undefined && response.authConstants !== null){
+                    authConstants = (response.authConstants: any);
+                }
             }
             callback(authConstants);
         });

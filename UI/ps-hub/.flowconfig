@@ -1,0 +1,14 @@
+[ignore]
+node_modules
+
+[include]
+
+[libs]
+
+src/flow
+
+[lints]
+
+[options]
+
+[strict]

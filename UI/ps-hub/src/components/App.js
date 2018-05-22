@@ -1,3 +1,4 @@
+//@flow
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
 
@@ -8,11 +9,12 @@ import HomeContainer from './home/HomeContainer';
 import ArticleContainer from './home/Articles/ArticleContainer';
 import AppConstants from '../utils/AppConstants';
 
-class App extends Component {
+class App extends Component<AppProps, null> {
   // eslint-disable-next-line 
-  constructor(props) {
+  constructor(props: AppProps) {
     super(props);
-    //console.log('APP PROPS: ' + JSON.stringify(this.props));
+    console.log('APP PROPS: ');
+    console.log(this.props);
   }
 
   render() {

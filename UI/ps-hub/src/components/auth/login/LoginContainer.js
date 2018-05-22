@@ -1,5 +1,6 @@
+//@flow
 import { connect } from 'react-redux';
-
+import AppConstants from '../../../utils/AppConstants';
 import Login from './Login';
 import { 
     setEmailHelpText, 
@@ -11,11 +12,11 @@ import {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setEmailHelpText: text => dispatch(setEmailHelpText(text)),
-        setEmailValidationState: validationState => dispatch(setEmailValidationState(validationState)),
-        setPasswordHelpText: text => dispatch(setPasswordHelpText(text)),
-        setPasswordValidationState: validationState => dispatch(setPasswordValidationState(validationState)),
-        setProfilePic: profilePicUrl => dispatch(setProfilePic(profilePicUrl))
+        setEmailHelpText: (text: ?string) => dispatch(setEmailHelpText(text)),
+        setEmailValidationState: (validationState: ?string) => dispatch(setEmailValidationState(validationState)),
+        setPasswordHelpText: (text: ?string) => dispatch(setPasswordHelpText(text)),
+        setPasswordValidationState: (validationState: ?string) => dispatch(setPasswordValidationState(validationState)),
+        setProfilePic: (profilePicUrl: ?string) => dispatch(setProfilePic(profilePicUrl))
     };
 };
 

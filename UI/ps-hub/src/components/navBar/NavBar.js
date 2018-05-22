@@ -1,3 +1,4 @@
+//@flow
 import React, { Component } from 'react';
 
 import NavBarStyle from './NavBarStyle';
@@ -6,18 +7,19 @@ import logo from '../../resources/main/logo.png';
 import AppConstants from '../../utils/AppConstants';
 import historyManager from '../../managers/HistoryManager';
 
-class NavBar extends Component {
+class NavBar extends Component<NavBarProps, NavBarComponentState> {
 
-    constructor(props) {
+    constructor(props: NavBarProps) {
         super(props);
-        //console.log('NAVBAR STATE: ' + JSON.stringify(this.props));
+        // console.log('NAVBAR PROPS: ');
+        // console.log(this.props);
         this.state = {
             isExpanded: false,
             activeKeyTabsNavKey: this.props.activeTab,
         };
     }
 
-    handleTabsNavSelect(key) {
+    handleTabsNavSelect(key: number) {
         console.log(this.state)
         this.setState({
             ...this.state,
@@ -36,7 +38,7 @@ class NavBar extends Component {
         }
     }
 
-    handleUserNavSelect(key) {
+    handleUserNavSelect(key: number) {
 
     }
     

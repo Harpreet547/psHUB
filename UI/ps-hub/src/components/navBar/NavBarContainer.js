@@ -1,14 +1,15 @@
+//@flow
 import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import {    
-            setActiveTab,
-            setBarTitle 
-        } from './NavBarActions';
+    setActiveTab,
+    setBarTitle 
+} from './NavBarActions';
 
 const mapDispatchToProps = dispatch => {
     return {
-        setBarTitle: title => dispatch(setBarTitle(title)),
-        setActiveTab: activeTab => dispatch(setActiveTab(activeTab))
+        setBarTitle: (title: string) => dispatch(setBarTitle(title)),
+        setActiveTab: (activeTab: number) => dispatch(setActiveTab(activeTab))
     };
 }
 

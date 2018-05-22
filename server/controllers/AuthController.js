@@ -91,6 +91,7 @@ class AuthController {
                 profilePic: profilePic,
                 status: status
             }
+            console.log(response);
             return callback(response);
         });
     }

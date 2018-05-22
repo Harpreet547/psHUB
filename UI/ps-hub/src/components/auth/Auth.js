@@ -1,3 +1,4 @@
+//@flow
 import React, { Component } from 'react';
 import { 
     Grid, 
@@ -13,11 +14,15 @@ import SignUp from './signUp/SignUp';
 import authController from '../../controllers/AuthController';
 import AppConstants from '../../utils/AppConstants';
 
-class Auth extends Component {
+class Auth extends Component<AuthProps, null> {
 
-    constructor(props) {
+    getLatestAuthConstants: () => void;
+    setAuthBackground: () => string;
+
+    constructor(props: AuthProps) {
         super(props);
-        //console.log('AUTH PROPS: ' + JSON.stringify(this.props));
+        // console.log('AUTH PROPS: ');
+        // console.log(this.props);
         this.getLatestAuthConstants = this.getLatestAuthConstants.bind(this);
         this.setAuthBackground = this.setAuthBackground.bind(this);
         this.getLatestAuthConstants();
@@ -31,8 +36,9 @@ class Auth extends Component {
     }
 
     setAuthBackground() {
-        if(this.props.authConstants.authBackground) {
-            return this.props.authConstants.authBackground;
+        var background = this.props.authConstants.authBackground;
+        if(background !== undefined && background !== null && background !== '') {
+            return background;
         }else {
             return backgroundImage;
         }

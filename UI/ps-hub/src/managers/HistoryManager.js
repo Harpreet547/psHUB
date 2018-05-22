@@ -1,12 +1,14 @@
+//@flow
 import { createBrowserHistory as createHistory } from "history";
 
 class HistoryManager {
+    history: Object;
     // eslint-disable-next-line
     constructor() {
         this.history = createHistory();
     }
 
-    pushRoute(url, props) {
+    pushRoute(url: string, props: historyPropType) {
         props.history.push(url);
     }
 }

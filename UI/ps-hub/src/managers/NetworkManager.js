@@ -1,27 +1,32 @@
+//@flow
 import ErrorCodes from '../utils/ErrorCodes';
 
+type Response = userExistResponseType | authConstantsResponseType;
+
 class NetworkManager {
-    performGetRequest(url, callback) {
+    performGetRequest(url: string, callback: (?ErrorCodesType, ?Response) => void) {
         fetch(url, {
             method: 'Get',
             credentials: 'include',
             //mode: 'cors',
             //body: JSON.stringify(reqBody),
             headers: {'Content-Type': 'application/json'},
-        }).then(response => response.json(), error => {
+        }).then(response => response.json(), (error: Error) => {
             var err = ErrorCodes.webService.failedToFetch;
             callback(err, null);
-        }).then(res => {
-            console.log('Response: ' + JSON.stringify(res));
+        }).then((res: ?Response) => {
             if(res === undefined) {
                 var error = ErrorCodes.webService.responseUndefined;
                 return callback(error, null);
+            }else {
+                console.log('Response:');
+                console.log(res);
+                return callback(null, res);
             }
-            callback(null, res);
         });
     }
 
-    performPostRequest(url, reqBody, callback) {
+    performPostRequest(url: string, reqBody: Object, callback: (?ErrorCodesType, ?Response) => void) {
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(reqBody),
@@ -31,12 +36,19 @@ class NetworkManager {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-        }).then(response => response.json(), error => {
+        }).then(response => response.json(), (error: Error) => {
             //console.log('ERROR IN FETCH LOGIN: ' + error)
-            callback(error, null);
-        }).then(res => {
-            //console.log('Response: ' + JSON.stringify(res));
-            callback(null, res);
+            var err = ErrorCodes.webService.failedToFetch;
+            callback(err, null);
+        }).then((res: ?Response) => {
+            if(res === undefined) {
+                var error = ErrorCodes.webService.responseUndefined;
+                return callback(error, null);
+            }else {
+                console.log('Response:');
+                console.log(res);
+                return callback(null, res);
+            }
         });
     }
 }

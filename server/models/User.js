@@ -90,9 +90,9 @@ UserSchema.statics.checkIfUserExist = function(userObj, callback) {
         if(err) {
             console.log('Error: ' + err);
             var error = ErrorCodes.general.unexpected;
-            return callback(error, false, false);
+            return callback(error, false, '', false);
         }else if(!user) {
-            return callback(null, false, true);
+            return callback(null, false, '', true);
         }
         return callback(null, true, user.profilePic, true);
     });

@@ -1,3 +1,4 @@
+//@flow
 import React, { Component } from 'react';
 import { 
     Col, 
@@ -16,19 +17,26 @@ import Utils from '../../../utils/Utils';
 import loginController from '../../../controllers/LoginController';
 import historyManager from '../../../managers/HistoryManager';
 
-class Login extends Component {
-    constructor(props) {
+class Login extends Component<LoginProps, null> {
+
+    onEmailValueChange: (event: Event) => void;
+    enableSubmit: (isEnabled: boolean) => void;
+    onLoginTap: (event: Event) => void;
+    getProfilePic: () => void;
+    login: (loginObj: loginObjType) => void;
+
+    constructor(props: LoginProps) {
         super(props);
-        //console.log('Login Props: ' + JSON.stringify(this.props));
+        //console.log('Login Props: ');
+        //console.log(this.props);
 
         this.onEmailValueChange = this.onEmailValueChange.bind(this);
-        this.onPasswordValueChange = this.onPasswordValueChange.bind(this);
         this.enableSubmit = this.enableSubmit.bind(this);
         this.getProfilePic = this.getProfilePic.bind(this);
         this.onLoginTap = this.onLoginTap.bind(this);
         this.login = this.login.bind(this);
 
-        this.login();
+        this.login({});
     }
     
     componentDidMount() {
@@ -37,39 +45,34 @@ class Login extends Component {
         this.props.setEmailValidationState(null);
     }
 
-    onEmailValueChange(event) {
-        var value = event.target.value;
+    onEmailValueChange(event: Event) {
+        var value: ?string = '';
+        if(event.target instanceof HTMLInputElement) {
+            value = event.target.value
+        }
         var reqBody = {
             email: value
         };
-        const url = AppConstants.urls.baseServiceUrl + '/auth/checkIfUserExist';
         var loginComponent = this;
-        networkManager.performPostRequest(url, reqBody, function(error, response) {
-            if(Utils.objIsEmpty(response)) {
-                loginComponent.props.setEmailHelpText('');
-                loginComponent.props.setEmailValidationState(null);
-                loginComponent.enableSubmit(false);
-            }else if(error) {
-                loginComponent.props.setEmailHelpText('');
-                loginComponent.props.setEmailValidationState(null);
-                loginComponent.enableSubmit(false);
-            }else if(response.userExist) {
-                loginComponent.props.setEmailHelpText('User found');
-                loginComponent.props.setEmailValidationState(AppConstants.formConstants.validationStates.success);
-                loginComponent.props.setProfilePic(response.profilePic);
-                loginComponent.enableSubmit(true);
-            }else if(!response.userExist) {
-                loginComponent.props.setEmailHelpText('User not found');
-                loginComponent.props.setEmailValidationState(AppConstants.formConstants.validationStates.warning);
-                loginComponent.enableSubmit(false);
+        loginController.checkifUserExist(reqBody, (result) => {
+            console.log(result);
+            loginComponent.props.setEmailHelpText(result.emailHelpText);
+            loginComponent.props.setEmailValidationState(result.emailValidationState);
+            loginComponent.enableSubmit(result.enableSubmit);
+            if(result.profilePicUrl != '') {
+                loginComponent.props.setProfilePic(result.profilePicUrl);
             }
         });
-        
     }
 
-    onLoginTap(event) {
-        const email = document.getElementById('emailInput').value;
-        const password = document.getElementById('passwordInput').value;
+    onLoginTap(event: Event) {
+        var emailField = document.getElementById('emailInput');
+        var passwordField = document.getElementById('passwordInput');
+        if(!(emailField instanceof HTMLInputElement) || !(passwordField instanceof HTMLInputElement)) {
+            return;
+        }
+        const email = emailField.value;
+        const password = passwordField.value;
         var loginObj = {
             email: email,
             password: password
@@ -78,13 +81,21 @@ class Login extends Component {
         return false;
     }
 
-    login(loginObj) {
-        loginController.login(loginObj, (response) => {
-            console.log('Login success: ' + JSON.stringify(response));
-            if(response.status || response.error.errorCode === 303) { //303: Already logged in
-                historyManager.pushRoute('/home', this.props);
+    login(loginObj: loginObjType) {
+        loginController.login(loginObj, (error, response) => {
+            if(!error && response !== undefined && response !==  null) {
+                if(response.status || response.error.errorCode === 303) { //303: Already logged in
+                    historyManager.pushRoute('/home', this.props);
+                }else {
+                    if(response.error.errorCode !== 101) {
+                        this.props.setEmailHelpText('Login Failed.');        
+                        this.props.setEmailValidationState(AppConstants.formConstants.validationStates.error);
+                    }
+                }
+            }else {
+                this.props.setEmailHelpText('Login Failed.');
+                this.props.setEmailValidationState(AppConstants.formConstants.validationStates.error);
             }
-
         });
     }
 
@@ -96,17 +107,15 @@ class Login extends Component {
         }
     }
 
-    enableSubmit(isEnabled) {
+    enableSubmit(isEnabled: boolean) {
         var submit = document.getElementById('loginBtn');
-        if(isEnabled) {
-            submit.disabled = false;
-        }else {
-            submit.disabled = true;
+        if(submit instanceof HTMLButtonElement) {
+            if(isEnabled) {
+                submit.disabled = false;
+            }else {
+                submit.disabled = true;
+            }
         }
-    }
-
-    onPasswordValueChange(event) {
-        console.log(event.target.value);
     }
 
     render() {
@@ -137,7 +146,7 @@ class Login extends Component {
                                 lg = { 6 } >
                             <FormGroup validationState = { this.props.passwordValidationState } style = { LoginStyle.formGroup }>
                                 <ControlLabel>Password</ControlLabel>
-                                <FormControl type="password" id = 'passwordInput' onChange = { this.onPasswordValueChange }/>
+                                <FormControl type="password" id = 'passwordInput'/>
                                 <HelpBlock>{this.props.passwordHelpText}</HelpBlock>
                             </FormGroup>
                             </Col>

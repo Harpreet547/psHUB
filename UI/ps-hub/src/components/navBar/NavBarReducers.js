@@ -1,18 +1,21 @@
+//@flow
 import ActionTypes from '../../redux/reduxConstants/ActionTypes';
 import AppConstants from '../../utils/AppConstants';
 
-const initialState = {
+const initialState: NavBarState = {
     barTitle: AppConstants.screenTitles.main,
     activeTab: 1
-}
+};
 
-export const NavBarElementsReducer = (state = initialState, action) => {
+export const NavBarElementsReducer = (state: NavBarState = initialState, action: NavBarActions): NavBarState => {
     switch(action.type) {
         case ActionTypes.NavBarActions.SET_TITLE:
-            return { ...state, barTitle: action.title };
+            let title: string = (action.payload: any);
+            return { ...state, barTitle: title };
 
         case ActionTypes.NavBarActions.SET_ACTIVE_TAB:
-            return { ...state, activeTab: action.activeTab };    
+            let activeTab: number = (action.payload: any);
+            return { ...state, activeTab: activeTab };    
 
         default:
             return state;

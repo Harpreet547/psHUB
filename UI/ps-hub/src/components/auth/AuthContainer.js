@@ -1,3 +1,4 @@
+//@flow
 import { connect } from 'react-redux';
 
 import Auth from './Auth';
@@ -5,7 +6,7 @@ import { setAuthConstants } from './AuthActions';
 
 const mapDispatchToProps = dispatch => {
     return {
-        setAuthConstants: authConstants => dispatch(setAuthConstants(authConstants))
+        setAuthConstants: (authConstants: AuthConstantsObject) => dispatch(setAuthConstants(authConstants))
     };
 }
 

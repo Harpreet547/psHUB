@@ -1,10 +1,11 @@
+//@flow
 import { connect } from 'react-redux';
 import { setNavBarVisibility } from './AppActions';
 import App from './App';
 
 const mapDispatchToProps = dispatch => {
     return {
-        setNavBarVisibility: isVisible => dispatch(setNavBarVisibility(isVisible)),
+        setNavBarVisibility: (isVisible: boolean) => dispatch(setNavBarVisibility(isVisible)),
     };
 }
 

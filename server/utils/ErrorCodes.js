@@ -2,7 +2,7 @@
 const ErrorCodes = {
     general: {
         emptyReqBody: {
-            errCode: 101,
+            errorCode: 101,
             message: 'General Error: Recieved empty request body.'
         },
         improperReqBody: {

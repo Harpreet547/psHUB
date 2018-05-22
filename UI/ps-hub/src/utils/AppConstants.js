@@ -1,4 +1,4 @@
-
+//@flow
 const AppConstants = {
     screenTitles: {
         main: 'PS-HUB'
@@ -6,7 +6,9 @@ const AppConstants = {
     defaultAuthConstants: {
         appTitle: "PS-HUB",
         descLine1: "PS-HUB is an interactive hub for ps owners.",
-        descLine2: "PS-HUB© belongs to ABC.org."
+        descLine2: "PS-HUB© belongs to ABC.org.",
+        _id: '',
+        __v: 0
     },
     appTheme: {
         primaryColor: '#FC4445',

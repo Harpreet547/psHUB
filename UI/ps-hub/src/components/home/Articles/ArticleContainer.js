@@ -1,3 +1,4 @@
+//@flow
 import { connect } from 'react-redux';
 import { setNavBarVisibility } from '../../AppActions';
 import Article from './Article';
@@ -7,8 +8,8 @@ import {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setNavBarVisibility: isVisible => dispatch(setNavBarVisibility(isVisible)),
-        setActiveTab: activeTab => dispatch(setActiveTab(activeTab))
+        setNavBarVisibility: (isVisible: boolean) => dispatch(setNavBarVisibility(isVisible)),
+        setActiveTab: (activeTab: number) => dispatch(setActiveTab(activeTab))
     };
 }
 
