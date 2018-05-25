@@ -4,7 +4,6 @@ var authConstantsRouter = express.Router();
 var authConstantsController = require('../../controllers/AdminControllers/AuthConstantsController').authConstantsController;
 
 authConstantsRouter.post('/saveNewAuthConstants', function(req, res) {
-    console.log(JSON.stringify(req.body));
     var reqBody = req.body;
     authConstantsController.saveNewDetails(reqBody, function(response) {
         res.send(response);

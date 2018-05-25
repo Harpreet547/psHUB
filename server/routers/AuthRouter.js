@@ -44,6 +44,7 @@ authRouter.post('/login', function(req, res) {
 
 authRouter.post('/checkIfUserExist', function(req, res) {
     var reqBody = req.body;
+    console.log('checkIfUserExist');
     authController.checkIfUserExist(reqBody, function(response) {
         res.send(response);
     });

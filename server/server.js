@@ -58,10 +58,12 @@ app.use(session({
         httpOnly: false,
     }
 }));
+
 app.use(cors({
     origin: 'http://localhost:3000',
     credentials: true,
 }));
+
 /*
 var allowedOrigins = ['http://localhost:3000',
                       'http://yourapp.com'];
@@ -85,11 +87,12 @@ app.use("/uploads", express.static(__dirname + '/uploads'));
 /////***********END App Use***************//////
 
 /////***********Routes***************//////
-var authRouter = require('./routers/AuthRouter').authRouter;
-app.use('/auth', authRouter);
+var userRouter = require('./routers/UserRoutes').userRouter;
+app.use('/user', cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+}), userRouter);
 
-var authConstantsRouter = require('./routers/adminRoutes/AuthConstantsRoute').authConstantsRouter;
-app.use('/authConstants', authConstantsRouter);
 /////***********END Routes***************//////
 
 
@@ -97,6 +100,7 @@ app.use('/authConstants', authConstantsRouter);
 app.all('*', function(req, res, next) {
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-type,Accept,X-Access-Token,X-Key');
+    
     //Redirect from HTTP to HTTPS
     /*
    if ( ! req.secure ) {

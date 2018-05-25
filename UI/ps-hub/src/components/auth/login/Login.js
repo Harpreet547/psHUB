@@ -55,7 +55,6 @@ class Login extends Component<LoginProps, null> {
         };
         var loginComponent = this;
         loginController.checkifUserExist(reqBody, (result) => {
-            console.log(result);
             loginComponent.props.setEmailHelpText(result.emailHelpText);
             loginComponent.props.setEmailValidationState(result.emailValidationState);
             loginComponent.enableSubmit(result.enableSubmit);

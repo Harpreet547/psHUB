@@ -3,7 +3,7 @@ import AppConstants from '../utils/AppConstants';
 import networkManager from '../managers/NetworkManager';
 
 const serverPathsForAuth = {
-    getLatestAuthConstants: '/authConstants/getLatestAuthConstants'
+    getLatestAuthConstants: '/user/authConstants/getLatestAuthConstants'
 }
 
 class AuthController {
