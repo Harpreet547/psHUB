@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html, body {
+    height: 100%;
+}
+
+.fillParentHeight {
+    height: 100%;
+}
+
+.fillParentWidth {
+    width: 100%
+}
+
+.marginZero {
+    margin: 0;
+}
+
+.paddingZero {
+    padding: 0;
+}

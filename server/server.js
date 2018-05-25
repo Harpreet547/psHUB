@@ -88,7 +88,7 @@ app.use("/uploads", express.static(__dirname + '/uploads'));
 
 /////***********Routes***************//////
 var userRouter = require('./routers/UserRoutes').userRouter;
-app.use('/user', cors({
+app.use('/user/*', cors({
     origin: 'http://localhost:3000',
     credentials: true,
 }), userRouter);
@@ -126,7 +126,19 @@ app.get('/', function(req, res) {
     res.send('<h1>PS Buck Server</h1>');
 });
 
-app.post('/upload', upload.single('file'), function(req, res, next) {
+//IF UPLOAD NOT WORKING CHECK THIS
+const whitelist = ['http://localhost:3000'];
+const uploadCorsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+};
+
+app.post('/upload', cors(uploadCorsOptions), upload.single('file'), function(req, res, next) {
     if (req.file != undefined) {
         var tempPath = req.file.path;
         var tempName = req.file.originalname;
