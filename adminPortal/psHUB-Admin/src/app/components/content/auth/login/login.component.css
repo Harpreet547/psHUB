@@ -1,0 +1,33 @@
+.formContainer {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-content: center;
+}
+
+.alignCenterHelp {
+    margin: auto;
+    display: flex;
+    align-content: center;
+}
+
+  .profilePic {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    object-fit: cover;
+    margin: auto;
+    margin-bottom: 25px;
+  }
+
+  .paddingLeft5 {
+    padding-left: 5px;
+  }
+
+  .paddingRight5 {
+    padding-right: 5px;
+  }
+
+  .marginBottom {
+    margin-bottom: 25px;
+  }

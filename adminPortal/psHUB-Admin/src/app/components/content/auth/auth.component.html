@@ -2,15 +2,16 @@
   <div class="row fillParentHeight">
     <div class="d-none d-sm-block col marginZero paddingZero">
       <img class="fillParentHeight fillParentWidth authBackground marginZero paddingZero" src="../../../../assets/auth/authBackground.jpg">
-      <div class="overlay"></div>
-    </div>
-    <div class="col fillParentHeight">
-      <div class="fillParentHeight  justify-content-center align-items-center red">
-        <div>
-            <img src="../../../../assets//auth/authBackground.jpg" class="profilePic ">
-            
+      <div class="overlay">
+        <div class="fillParentWidth titleDiv">
+          <h1 class="title" [ngStyle]="{ 'color': secondaryTextColor }">PS-HUB</h1>
+          <p class="info" [ngStyle]="{ 'color': secondaryTextColor }">Info 1</p>
+          <p class="info" [ngStyle]="{ 'color': secondaryTextColor }">Info 2</p>
         </div>
       </div>
+    </div>
+    <div class="col fillParentHeight">
+      <router-outlet></router-outlet> <!--Login route-->
     </div>
   </div>
 </div>

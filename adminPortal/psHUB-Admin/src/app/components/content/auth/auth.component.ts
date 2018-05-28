@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppConstants } from '../../../utils/AppConstants';
 
 @Component({
   selector: 'content-auth',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
+  secondaryTextColor = AppConstants.appTheme.secondaryTextColor;
+  
   constructor() { }
 
   ngOnInit() {

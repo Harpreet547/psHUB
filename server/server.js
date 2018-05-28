@@ -93,6 +93,12 @@ app.use('/user/*', cors({
     credentials: true,
 }), userRouter);
 
+var adminRouter = require('./routers/adminRoutes/AdminRoutes').adminRouter;
+app.use('/admin/*', cors({
+    origin: 'http://localhost:4200',
+    credentials: true,
+}), adminRouter);
+
 /////***********END Routes***************//////
 
 
@@ -127,7 +133,7 @@ app.get('/', function(req, res) {
 });
 
 //IF UPLOAD NOT WORKING CHECK THIS
-const whitelist = ['http://localhost:3000'];
+const whitelist = ['http://localhost:3000', 'http://localhost:4200'];
 const uploadCorsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {

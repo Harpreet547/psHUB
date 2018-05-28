@@ -1,0 +1,22 @@
+  <div class="fillParentHeight  justify-content-center align-items-center formContainer">
+    <div class="fillParentWidth">
+        <div class="alignCenterHelp">
+            <img src="../../../../../assets//auth/authBackground.jpg" class="profilePic ">
+        </div>
+        <form class="marginZero">
+          <div class="row marginBottom">
+            <div class="form-group col marginZero paddingRight5">
+              <label for="emailInput">Enter your email.</label>
+              <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Email">
+            </div>
+            <div class="form-group col marginZero paddingLeft5">
+              <label for="passwordInput">Enter Password.</label>
+              <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+            </div>
+          </div>
+          <div class="row marginZero fillParentWidth">
+            <button type="submit" [ngStyle]="{ 'background-color': primaryThemeColor, 'border-color': primaryThemeColor }" class="fillParentWidth btn btn-primary btn-lg marginZero">Submit</button>
+          </div>
+        </form>
+    </div>
+  </div>
