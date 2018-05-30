@@ -58,12 +58,12 @@ app.use(session({
         httpOnly: false,
     }
 }));
-
+/*
 app.use(cors({
     origin: 'http://localhost:3000',
     credentials: true,
 }));
-
+*/
 /*
 var allowedOrigins = ['http://localhost:3000',
                       'http://yourapp.com'];
@@ -88,13 +88,13 @@ app.use("/uploads", express.static(__dirname + '/uploads'));
 
 /////***********Routes***************//////
 var userRouter = require('./routers/UserRoutes').userRouter;
-app.use('/user/*', cors({
+app.use('/user', cors({
     origin: 'http://localhost:3000',
     credentials: true,
 }), userRouter);
 
 var adminRouter = require('./routers/adminRoutes/AdminRoutes').adminRouter;
-app.use('/admin/*', cors({
+app.use('/admin', cors({
     origin: 'http://localhost:4200',
     credentials: true,
 }), adminRouter);

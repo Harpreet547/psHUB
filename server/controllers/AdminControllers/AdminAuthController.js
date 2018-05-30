@@ -1,5 +1,6 @@
 var utils = require('../../utils/Utils').utils;
 var User = require('../../models/User').User;
+var ErrorCodes = require('../../utils/ErrorCodes').ErrorCodes;
 
 class AdminAuthController {
 

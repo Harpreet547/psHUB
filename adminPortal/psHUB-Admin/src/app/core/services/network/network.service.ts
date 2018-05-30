@@ -16,13 +16,29 @@ export class NetworkService {
 
   constructor(private http: HttpClient) { }
 
-  makePostRequest(url, body: HttpParams) {
+  makePostRequest(url: string, body: HttpParams): Observable<Object> {
     return this.http.post(
       url,
       body.toString(),
       {
         headers: new HttpHeaders()
           .set('Content-Type', 'application/x-www-form-urlencoded')
+          .set('Accept', 'application/json'),
+        withCredentials: true
+      }
+    ).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  makeGetRequest(url: string): Observable<Object> {
+    return this.http.get(
+      url,
+      {
+        headers: new HttpHeaders()
+          .set('Content-Type', 'application/x-www-form-urlencoded')
+          .set('Accept', 'application/json'),
+        withCredentials: true
       }
     ).pipe(
       catchError(this.handleError)
@@ -30,6 +46,6 @@ export class NetworkService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    return throwError('Error');
+    return throwError('Error while communicating to server');
   }
 }

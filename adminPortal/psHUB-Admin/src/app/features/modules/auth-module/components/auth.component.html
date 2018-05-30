@@ -1,0 +1,17 @@
+<div class="container-fluid fillParentHeight">
+  <div class="row fillParentHeight">
+    <div class="d-none d-sm-block col marginZero paddingZero">
+      <img class="fillParentHeight fillParentWidth authBackground marginZero paddingZero" src="{{ authBackground }}">
+      <div class="overlay">
+        <div class="fillParentWidth titleDiv">
+          <h1 class="title" [ngStyle]="{ 'color': secondaryTextColor }">{{ appTitle }}</h1>
+          <p class="info" [ngStyle]="{ 'color': secondaryTextColor }">{{ descLine1 }}</p>
+          <p class="info" [ngStyle]="{ 'color': secondaryTextColor }">{{ descLine2 }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col fillParentHeight">
+      <router-outlet></router-outlet> <!--Login route-->
+    </div>
+  </div>
+</div>

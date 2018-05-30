@@ -7,15 +7,15 @@
           <div class="row marginBottom">
             <div class="form-group col marginZero paddingRight5">
               <label for="emailInput">Enter your email.</label>
-              <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Email">
+              <input [(ngModel)]="email" name="emailInput" type="email" autocomplete="off" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Email">
             </div>
             <div class="form-group col marginZero paddingLeft5">
               <label for="passwordInput">Enter Password.</label>
-              <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+              <input [(ngModel)]="password" name="passwordInput" type="password" class="form-control" id="passwordInput" placeholder="Password">
             </div>
           </div>
           <div class="row marginZero fillParentWidth">
-            <button type="submit" [ngStyle]="{ 'background-color': primaryThemeColor, 'border-color': primaryThemeColor }" class="fillParentWidth btn btn-primary btn-lg marginZero">Submit</button>
+            <button type="button" (click)="onLoginBtnTapped()" [ngStyle]="{ 'background-color': primaryThemeColor, 'border-color': primaryThemeColor }" class="fillParentWidth btn btn-primary btn-lg marginZero">Submit</button>
           </div>
         </form>
     </div>
