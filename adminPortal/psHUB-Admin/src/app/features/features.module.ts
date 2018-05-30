@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FeaturesComponent } from './features.component';
 import { AuthModule } from './modules/auth-module/auth.module';
 import { FeaturesRoutingModule } from './features-routing/features-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
     AuthModule,
-    FeaturesRoutingModule
+    FeaturesRoutingModule,
+    SharedModule
   ],
   declarations: [FeaturesComponent],
 

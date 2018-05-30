@@ -1,11 +1,10 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { DashboardComponent } from '../components/content/dashboard/dashboard.component';
+import { AppComponent } from '../app.component';
 
 const routes: Routes = [
-  { path: 'dash', component: DashboardComponent },
-  { path: 'features', loadChildren: '../features/features.module' }
+  { path: 'app', component: AppComponent },
+  { path: 'features', loadChildren: '../features/features.module#FeaturesModule' }
 ];
 
 @NgModule({

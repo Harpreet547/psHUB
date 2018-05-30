@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppConstantsService } from '../../../core/services/appConstants/app-constants.service';
+import { AppConstantsService } from '../../../../core/services/appConstants/app-constants.service';
 
 @Component({
   selector: 'app-dashboard',
