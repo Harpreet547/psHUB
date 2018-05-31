@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { FeaturesComponent } from './features.component';
-import { AuthModule } from './modules/auth-module/auth.module';
-import { FeaturesRoutingModule } from './features-routing/features-routing.module';
-import { SharedModule } from '../shared/shared.module';
+import { FeaturesComponent } from '@features/features.component';
+import { AuthModule } from '@auth/auth.module';
+import { FeaturesRoutingModule } from '@features/features-routing/features-routing.module';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   imports: [

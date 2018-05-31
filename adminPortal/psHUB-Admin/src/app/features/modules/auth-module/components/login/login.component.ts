@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppConstants } from '../../../../../utils/AppConstants';
-import { LoginService } from '../../services/login/login.service';
+import { AppConstants } from '@utils/AppConstants';
+import { LoginService } from '@auth/services/login/login.service';
 import { Router } from '@angular/router';
 
 @Component({

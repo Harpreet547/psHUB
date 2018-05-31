@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppConstants } from '../../../../utils/AppConstants';
-import { AuthConstantsService } from '../services/authConstants/auth-constants.service';
+import { AppConstants } from '@utils/AppConstants';
+import { AuthConstantsService } from '@auth/services/authConstants/auth-constants.service';
 
 @Component({
   selector: 'content-auth',

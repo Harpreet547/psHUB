@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { NetworkService } from '../../../../../core/services/network/network.service';
-import { AppConstants } from '../../../../../utils/AppConstants';
+import { NetworkService } from '@core/services/network/network.service';
+import { AppConstants } from '@utils/AppConstants';
 import { HttpParams } from '@angular/common/http';
-import { IErrorCodes } from '../../../../../utils/ErrorCodes';
-import { AppConstantsService } from '../../../../../core/services/appConstants/app-constants.service';
-import { AuthModule } from '../../auth.module';
+import { IErrorCodes } from '@utils/ErrorCodes';
+import { AppConstantsService } from '@core/services/appConstants/app-constants.service';
+import { AuthModule } from '@auth/auth.module';
 
 interface ILoginResponse {
   error: IErrorCodes,

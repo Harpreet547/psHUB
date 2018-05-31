@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { NetworkService } from '../../../../../core/services/network/network.service';
-import { AppConstants } from '../../../../../utils/AppConstants';
-import { IErrorCodes } from '../../../../../utils/ErrorCodes';
+import { NetworkService } from '@core/services/network/network.service';
+import { AppConstants } from '@utils/AppConstants';
+import { IErrorCodes } from '@utils/ErrorCodes';
 
 interface IAuthConstants {
   appTitle: string,

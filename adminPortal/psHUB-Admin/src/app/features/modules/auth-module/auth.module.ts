@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { AuthComponent } from './components/auth.component';
-import { LoginComponent } from './components/login/login.component';
-import { AuthRoutingModule } from './auth-routing/auth-routing.module';
-import { SharedModule } from '../../../shared/shared.module';
+import { AuthComponent } from '@auth/components/auth.component';
+import { LoginComponent } from '@auth/components/login/login.component';
+import { AuthRoutingModule } from '@auth/auth-routing/auth-routing.module';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   imports: [
