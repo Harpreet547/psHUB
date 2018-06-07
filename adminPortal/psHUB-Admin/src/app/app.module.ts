@@ -4,7 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CoreModule } from '@core/core.module';//'./core/core.module';
 import { AppComponent } from '@app/app.component';
-import { AppRoutingModule } from '@app/routing/app-routing.module';
+import { AppRoutingModule } from '@app/app-routing/app-routing.module';
 
 import { FeaturesModule } from '@features/features.module';
 

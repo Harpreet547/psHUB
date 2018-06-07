@@ -52,6 +52,7 @@ AuthConstantsSchema.statics.saveToDB = function (authConstantsObj, callback) {
         }else {
             error = null;
             savedAuthConstants = authConstants;
+            savedAuthConstants.rowNumber = undefined;
             status = true;
         }
         callback(status, error, savedAuthConstants);

@@ -3,7 +3,7 @@ import AppConstants from '../../utils/AppConstants';
 const NavBarStyle = {
     NavBar: {
         borderRadius: 0,
-        background: 'white',
+        background: AppConstants.appTheme.primaryColor,
     },
     NavBarHeader: {
         padding: 0,
@@ -19,7 +19,7 @@ const NavBarStyle = {
         textAlign: 'left'
     },
     brandTitle: {
-        //color: AppConstants.appTheme.secondaryTextColor,
+        color: AppConstants.appTheme.secondaryTextColor,
         margin: 0
     },
     BrandImage: { 
@@ -29,7 +29,8 @@ const NavBarStyle = {
         margin: 5, 
     },
     tabTitle: {
-        margin: 0
+        margin: 0,
+        color: AppConstants.appTheme.secondaryTextColor,
     },
     profilePic: { 
         height: 40, 
@@ -40,12 +41,21 @@ const NavBarStyle = {
     dropDown: { 
         float: 'left', 
         margin: 'auto', 
+        background: AppConstants.appTheme.primaryColor,
         paddingTop: 15, 
-        paddingBottom: 15 
+        paddingBottom: 15,
+        color: AppConstants.appTheme.primaryColor
     },
     navBarCollapse: { 
-        background: 'white' 
+        background: AppConstants.appTheme.primaryColor 
+    },
+    navActiveTab: {
+        background: AppConstants.appTheme.secondaryColor
+    },
+    navTab: {
+        bacground: AppConstants.appTheme.primaryColor
     }
+
 }
 
 export default NavBarStyle;

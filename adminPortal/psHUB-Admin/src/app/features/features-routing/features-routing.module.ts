@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ModuleWithProviders} from '@angular/core';
 
 const routes: Routes = [
-  { path: 'auth', loadChildren: '@auth/auth.module#AuthModule' }
+  { path: 'auth', loadChildren: '@auth/auth.module#AuthModule' },
+  { path: 'dash', loadChildren: '@dash/dash.module#DashModule' }
 ];
 
 @NgModule({

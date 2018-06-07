@@ -17,6 +17,7 @@ export const AppConstants = {
         tertiaryColor: '#55BCC9',
         fourthColor: '#97CAEF',
         fifthColor: '#CAFAFE',
+        darkColor: '#455A64',
         primaryTextColor: 'black',
         secondaryTextColor: 'white'
     },

@@ -22,7 +22,9 @@
       "@features/*": ["src/app/features/*"],
       "@shared/*": ["src/app/shared/*"],
       "@utils/*": ["src/app/utils/*"],
-      "@auth/*": ["src/app/features/modules/auth-module/*"]
+      "@auth/*": ["src/app/features/modules/auth-module/*"],
+      "@dash/*": ["src/app/features/modules/dash/*"],
+      "@navBar/*": ["src/app/features/modules/navigation-bar/*"]
     }
   }
 }

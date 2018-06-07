@@ -7,6 +7,7 @@ import logo from '../../resources/main/logo.png';
 import AppConstants from '../../utils/AppConstants';
 import historyManager from '../../managers/HistoryManager';
 
+import './navBarStyleCheat.css'
 class NavBar extends Component<NavBarProps, NavBarComponentState> {
 
     constructor(props: NavBarProps) {
@@ -44,7 +45,7 @@ class NavBar extends Component<NavBarProps, NavBarComponentState> {
     
     render() {
         return (
-            <Navbar fixedTop = { false } staticTop = { true } style = { NavBarStyle.NavBar }>
+            <Navbar fixedTop = { true } staticTop = { false } style = { NavBarStyle.NavBar }>
                 <img className = 'pull-left' src = { logo } style = { NavBarStyle.BrandImage } alt = 'logo'/>
                  <Navbar.Header style = { NavBarStyle.NavBarHeader }>
                     <Navbar.Brand style = { NavBarStyle.Brand }>
@@ -54,10 +55,10 @@ class NavBar extends Component<NavBarProps, NavBarComponentState> {
                 </Navbar.Header>
                 <Navbar.Collapse style = { NavBarStyle.navBarCollapse }>
                     <Nav activeKey = { this.state.activeKeyTabsNavKey } onSelect = { (key) => { this.handleTabsNavSelect(key) } }>
-                        <NavItem eventKey={1} >
+                        <NavItem style = { this.state.activeKeyTabsNavKey === 1 ? NavBarStyle.navActiveTab : NavBarStyle.navTab } eventKey={1} >
                             <p style = { NavBarStyle.tabTitle }>Home</p>
                         </NavItem>
-                        <NavItem eventKey={2}>
+                        <NavItem style = { this.state.activeKeyTabsNavKey === 2 ? NavBarStyle.navActiveTab : NavBarStyle.navTab } eventKey={2}>
                             <p style = { NavBarStyle.tabTitle }>Articles</p>
                         </NavItem>
                     </Nav>

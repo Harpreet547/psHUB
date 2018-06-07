@@ -2,6 +2,7 @@
 var url = require('url');
 var express = require('express');
 
+var helmet = require('helmet');
 var cors = require('cors');
 
 var app = express();
@@ -49,6 +50,8 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+app.use(helmet());
 
 app.use(session({
     secret: 'Work Hard',

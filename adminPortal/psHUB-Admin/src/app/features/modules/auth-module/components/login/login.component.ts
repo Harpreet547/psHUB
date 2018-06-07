@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  primaryThemeColor = AppConstants.appTheme.primaryColor;
+  secondaryColor = AppConstants.appTheme.secondaryColor;
 
   email = '';
   password = '';
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginService.login(this.email, this.password, (status, error) => {
       if(status) {
-        //this.router.navigateByUrl('/dash');
+        this.router.navigateByUrl('/dash');
       }
     });
   }

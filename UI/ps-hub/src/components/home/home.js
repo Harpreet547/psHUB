@@ -11,7 +11,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
+            <div style = { { marginTop: 60 } }>
                 <h1>Home</h1>
             </div>
                 

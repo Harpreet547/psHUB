@@ -20,3 +20,7 @@ html, body {
 .paddingZero {
     padding: 0;
 }
+
+.navBarMargin {
+    margin-top: 60px;
+}

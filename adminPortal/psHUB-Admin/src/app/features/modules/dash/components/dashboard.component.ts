@@ -11,6 +11,7 @@ export class DashboardComponent implements OnInit {
   constructor(private appConstantsService: AppConstantsService) { }
 
   ngOnInit() {
+    console.log('DASHBOARD');
   }
 
   printToken() {

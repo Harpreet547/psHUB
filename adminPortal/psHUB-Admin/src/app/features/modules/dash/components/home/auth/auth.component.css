@@ -1,0 +1,45 @@
+
+.authBackground {
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+    transition: .5s ease;
+    background-color: black;
+    display: flex;
+  }
+
+  .titleDiv {
+    margin: auto;
+    margin-bottom: 10%;    
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    text-align: center;
+    width: 70%;
+    margin: auto;
+  }
+
+  .info {
+    text-align: center;
+    margin-bottom: 0px;
+    width: 70%;
+    margin: auto;
+  }
+
+  .saveBtn {
+    width: 70%;
+    margin: auto;
+    margin-top: 10px;
+    opacity: 100%;
+  }
