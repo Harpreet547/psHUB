@@ -1,0 +1,57 @@
+<div class="container-fluid fillParentHeight">
+  <div class="row fillParentHeight">
+    <div class="d-sm-block col marginZero paddingZero">
+      <img class="fillParentHeight fillParentWidth authBackground marginZero paddingZero" src="{{ authBackground }}">
+      <div class="overlay">
+        <div class="fillParentWidth titleDiv">
+          <input class="title" [(ngModel)]="title">
+          <input class="info" [(ngModel)]="descLine1" >
+          <input class="info" [(ngModel)]="descLine2" >
+          <upload-image 
+            [ngStyle]="{ 'background-color': secondaryColor, color: secondaryTextColor }" 
+            class="uploadImage paddingZero"
+            (fileUrl)="onFileUrlUpdated($event)"
+            [btnTitle]="uploadBtnTitle"></upload-image>
+          <button (click)="openSaveModal(saveModel)" [ngStyle]="{ 'background-color': secondaryColor, color: secondaryTextColor }" class="btn primary saveBtn">Save</button>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- saveModel -->
+<ng-template #saveModel>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Save</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Are you sure you want to save?
+  </div>
+  <div class="modal-footer">
+    <button type="button" [ngStyle]="{ 'background-color': secondaryColor, color: secondaryTextColor }" class="btn btn-default" (click)="saveAuthConstants()">Save</button>
+    <button type="button" [ngStyle]="{ 'background-color': primaryColor, color: secondaryTextColor }" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+  </div>
+</ng-template>
+<!-- saveModel -->
+
+<!-- errorModel -->
+<ng-template #errorModel>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Error</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Error Occurred While saving.
+  </div>
+  <div class="modal-footer">
+    <button type="button" [ngStyle]="{ 'background-color': primaryColor, color: secondaryTextColor }" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+  </div>
+</ng-template>
+<!-- errorModel -->

@@ -12,7 +12,6 @@ export const AppConstants = {
     },
     appTheme: {
         primaryColor: '#FC4445',
-        primaryColor2: '#3FE0D0',
         secondaryColor: '#3FEEE6',
         tertiaryColor: '#55BCC9',
         fourthColor: '#97CAEF',

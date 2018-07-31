@@ -1,0 +1,16 @@
+<table class="table" [ngStyle]="{ 'background-color':  darkColor }">
+  <thead>
+    <tr>
+      <th scope="col">
+        <span [ngStyle]="{ 'color':  secondaryFontColor }">Home</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let link of linkArr">
+      <td>
+        <a routerLink="{{ link.link }}" [ngStyle]="{ 'color':  secondaryFontColor }">{{ link.title }}</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

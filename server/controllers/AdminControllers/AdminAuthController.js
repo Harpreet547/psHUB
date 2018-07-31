@@ -1,5 +1,5 @@
 var utils = require('../../utils/Utils').utils;
-var User = require('../../models/User').User;
+var AdminUser = require('../../models/AdminModels/AdminUser').AdminUser;
 var ErrorCodes = require('../../utils/ErrorCodes').ErrorCodes;
 
 class AdminAuthController {
@@ -32,7 +32,7 @@ class AdminAuthController {
                 password: reqBody.password
             };
 
-            User.authenticate(loginObj, function(error, user, status) {
+            AdminUser.authenticate(loginObj, function(error, user, status) {
                 var response = {
                     error: error,
                     user: user,
@@ -50,6 +50,64 @@ class AdminAuthController {
             error = ErrorCodes.general.improperReqBody;
             status = false;
         }
+        callback(error, status);
+    }
+
+    signUp(reqBody, callback) {
+        var isEmpty = utils.objIsEmpty(reqBody);
+        if(isEmpty) {
+            const error = ErrorCodes.general.emptyReqBody;
+            const response = {
+                user: null,
+                error: error,
+                status: false
+            };
+            return callback(response);
+        }
+        
+        this.validateSignUpObj(reqBody, function(error, isValid) {
+            if(!isValid) {
+                var response = {
+                    user: null,
+                    error: error,
+                    status: isValid
+                };
+                return callback(response);
+            }
+
+            var userObj = {
+                email: reqBody.email,
+                password: reqBody.password
+            };
+            AdminUser.saveToDB(userObj, function(status, error, user) {
+                var response = {
+                    user: user,
+                    error: error,
+                    status: status
+                }
+                callback(response);
+            });
+        });
+
+    }
+
+    validateSignUpObj(userObj, callback) {
+        var error = null;
+        var status = true;
+        if( !( utils.objHasProperty(userObj, 'email') 
+                && utils.objHasProperty(userObj, 'password') 
+                && utils.objHasProperty(userObj, 'passwordConfirm') 
+            ) 
+        ) {
+            error = ErrorCodes.general.improperReqBody;
+            status = false;
+        }
+
+        if(userObj.password !== userObj.passwordConfirm) {
+            error = ErrorCodes.signUp.passwordMismatch;
+            status = false;
+        }
+
         callback(error, status);
     }
 }

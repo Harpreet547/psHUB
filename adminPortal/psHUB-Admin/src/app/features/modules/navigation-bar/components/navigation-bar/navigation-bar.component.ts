@@ -28,7 +28,7 @@ export class NavigationBarComponent implements OnInit {
     //this.activeTab = ActiveTab.home;
     this.homeActive = true;
     this.activityActive = false;
-    this.router.navigateByUrl('/dash/home');
+    this.router.navigateByUrl('/dash/home/auth');
   }
 
   activityTapped() {

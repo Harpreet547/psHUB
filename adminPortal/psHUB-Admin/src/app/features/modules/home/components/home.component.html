@@ -1,0 +1,11 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="container-fluid fillParentHeight navBarMargin">
+  <div class="row fillParentHeight">
+    <div class="d-none d-sm-block col-sm-4 col-md-3 col-lg-3 col-xl-2 marginZero paddingZero" [ngStyle]="{ 'background-color':  darkColor }">
+      <home-side-bar ></home-side-bar>
+    </div>
+    <div class="col fillParentHeight marginZero paddingZero">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

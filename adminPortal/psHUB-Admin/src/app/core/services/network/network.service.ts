@@ -4,9 +4,11 @@ import {
   HttpClient, 
   HttpHeaders, 
   HttpErrorResponse, 
-  HttpResponse 
+  HttpResponse, 
+  HttpRequest,
+  HttpEventType
 } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, Subject } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
@@ -29,6 +31,18 @@ export class NetworkService {
     ).pipe(
       catchError(this.handleError)
     );
+  }
+
+  upload(url: string, formData: FormData, callback) {
+    const req = new HttpRequest('POST', url, formData, {
+      
+    });
+    this.http.request(req).subscribe(event => {
+      if (event instanceof HttpResponse) {
+        callback(event.body);
+      }
+    });
+
   }
 
   makeGetRequest(url: string): Observable<Object> {

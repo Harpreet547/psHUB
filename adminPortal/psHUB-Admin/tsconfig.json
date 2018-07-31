@@ -23,8 +23,10 @@
       "@shared/*": ["src/app/shared/*"],
       "@utils/*": ["src/app/utils/*"],
       "@auth/*": ["src/app/features/modules/auth-module/*"],
-      "@dash/*": ["src/app/features/modules/dash/*"],
-      "@navBar/*": ["src/app/features/modules/navigation-bar/*"]
+      "@home/*": ["src/app/features/modules/home/*"],
+      "@navBar/*": ["src/app/features/modules/navigation-bar/*"],
+      "@upload/*": ["src/app/features/modules/upload/*"],
+      "@activities/*": ["src/app/features/modules/activities/*"]
     }
   }
 }

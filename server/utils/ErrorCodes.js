@@ -45,6 +45,16 @@ const ErrorCodes = {
                 message: 'AuthConstants Error: Unable to get updated Constants.'
             }
         }
+    },
+    upload: {
+        imageFormat: {
+            errorCode: 501,
+            message: 'Only jpeg, png, jpg file are allowed.'
+        },
+        fileNotFound: {
+            errorCode: 502,
+            message: 'File not found.'
+        }
     }
 }
 

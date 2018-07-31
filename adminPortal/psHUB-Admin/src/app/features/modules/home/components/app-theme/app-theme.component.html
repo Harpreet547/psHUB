@@ -1,0 +1,18 @@
+<div>
+  <div>
+    <span [style.background]="arrayColors[selectedColor]"
+    [cpToggle]="true"
+    [cpDialogDisplay]="'inline'"
+    [cpCancelButton]="true"
+    [(colorPicker)]="arrayColors[selectedColor]"></span>
+  </div>
+
+  <div [style.background]="arrayColors[0]"
+      (click)="selectedColor='color1'"
+      class="colorBox"></div>
+
+  <div [style.background]="arrayColors[0]"
+      (click)="selectedColor='color2'"
+      class="colorBox"></div>
+      
+</div>

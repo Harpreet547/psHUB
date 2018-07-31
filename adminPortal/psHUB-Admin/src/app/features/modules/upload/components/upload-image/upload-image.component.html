@@ -1,0 +1,6 @@
+<div class="form-group marginZero paddingZero fillParentWidth fillParentHeight">
+  <input type="file"
+         id="file"
+         (change)="handleFileInput($event.target.files)">
+  <button class="btn btn-primary marginZero paddingZero fillParentWidth fillParentHeight uploadBtn" (click)="selectFile()" >{{ btnTitle }}</button>
+</div>

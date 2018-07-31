@@ -3,6 +3,14 @@ var adminAuthRouter = express.Router();
 var adminAuthController = require('../../controllers/AdminControllers/AdminAuthController').adminAuthController;
 var ErrorCodes = require('../../utils/ErrorCodes').ErrorCodes;
 
+adminAuthRouter.post('/signUp', function(req, res) {
+    var reqBody = req.body;
+    console.log('SignUp req: ' + JSON.stringify(req.body));
+    adminAuthController.signUp(reqBody, function(response) {
+        res.send(response);
+    });
+});
+
 adminAuthRouter.post('/login', function(req, res) {
     if(req.session.userID) {
         var error = ErrorCodes.login.alreadyLoggedIn;
